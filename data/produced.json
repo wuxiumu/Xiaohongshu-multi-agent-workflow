@@ -33,10 +33,10 @@
         "小红书爆款封面首图,明亮高饱和风格,醒目粗黑大字标题「AI作图翻车现场」居中偏上,下方小一号黄色荧光笔字「第3个绝了😂」,画面左右分栏对比:左边一张六根手指的崩坏AI人像图盖红色「翻车」印章贴纸,右边一张精致完美的AI人像成品图贴绿色「救回来了」标签,中间一个手绘放大镜emoji贴纸,底部小字条「附避坑参数✅」,整体带白色描边贴纸感和手写箭头涂鸦,小红书封面实拍排版感"
       ],
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_001/cover.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_001/step1.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_001/step2.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_001/step3.png"
+        "data/images/tut_001/cover.png",
+        "data/images/tut_001/step1.png",
+        "data/images/tut_001/step2.png",
+        "data/images/tut_001/step3.png"
       ],
       "topic_id": "tut_001",
       "track": "tutorial",
@@ -74,10 +74,10 @@
         "首图封面:左右分屏对比构图,左边是呆板廉价感的白底护肤品产品图,右边是同款产品摆在奶油色大理石台面、背景虚化ins风卧室的氛围感大片,中间一个醒目的白色箭头指向右侧,顶部明黄色粗体大字1行咒语白底图变ins风,右下角红色小标签写着点击率翻倍,小红书爆款封面风格,高饱和撞色,视觉冲击力强,竖版3:4"
       ],
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_002/cover.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_002/step1.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_002/step2.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_002/step3.png"
+        "data/images/tut_002/cover.png",
+        "data/images/tut_002/step1.png",
+        "data/images/tut_002/step2.png",
+        "data/images/tut_002/step3.png"
       ],
       "topic_id": "tut_002",
       "track": "tutorial",
@@ -111,9 +111,9 @@
         "小红书爆款封面,左右分屏对比构图:左半边灰暗色调,大字写着\"外包报价 2万\"\"工期7天\",配一个崩溃打工人抱头实拍小图;右半边明亮红金色调,电商主图、详情页截图、促销海报整齐铺开排成一摞,顶部黄底黑字冲击大标题\"AI半天搞定\",右下角贴纸风格数字\"省¥19800\"带红色圆圈描边,实拍拼贴贴纸风格,高饱和度,信息量拉满,3:4竖版"
       ],
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_003/cover.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_003/step1.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_003/step3.png"
+        "data/images/tut_003/cover.png",
+        "data/images/tut_003/step1.png",
+        "data/images/tut_003/step3.png"
       ],
       "topic_id": "tut_003",
       "track": "tutorial",
@@ -151,10 +151,10 @@
         "首图：左右分屏对比封面，左边是无排版素图咖啡海报（画面平淡略暗），右边是精致交付版海报（暖色调拿铁+精美文字排版），中间画一个醒目的红色箭头从左指向右，顶部大字标题“零基础AI作图 首单200到手”，配小字“不会画画也能接单”，小红书爆款封面风格，高饱和暖色调，字体加粗醒目，画面留白干净"
       ],
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_004/cover.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_004/step1.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_004/step2.png",
-        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_004/step3.png"
+        "data/images/tut_004/cover.png",
+        "data/images/tut_004/step1.png",
+        "data/images/tut_004/step2.png",
+        "data/images/tut_004/step3.png"
       ],
       "topic_id": "tut_004",
       "track": "tutorial",
@@ -177,9 +177,9 @@
         "首图:左右分屏before/after对比图,左侧红色系JSONDecodeError报错弹窗+成功率74%,右侧绿色系✅100%成功+3行高亮代码,中间粗白箭头,顶部大字标题「3行代码修稳skill」,小红书封面3:4竖版,高饱和撞色,扁平简洁风",
         "第二图:skill容错流程图,输入校验→调用→输出清洗→失败重试,带环形回路箭头,每步配小icon,标注retry上限2次,奶油底色手账贴纸风"
       ],
-      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_001/skill_script.txt",
+      "skill_script_path": "data/images/ski_001/skill_script.txt",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_001/cover.png"
+        "data/images/ski_001/cover.png"
       ],
       "topic_id": "ski_001",
       "track": "skill",
@@ -201,9 +201,9 @@
       "image_prompts": [
         "首图prompt：小红书封面before-after对比图。左侧：焦虑打工人周五14:00抓头发盯着空白文档，配字'写周报×2小时'；右侧：同一人翘脚喝茶看手机，配字'周报已自动送达×3分钟'；中间红色大箭头+加粗大标题'周报2小时→3分钟'；红底白字，扁平插画风，高对比度"
       ],
-      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_002/skill_script.txt",
+      "skill_script_path": "data/images/ski_002/skill_script.txt",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_002/cover.png"
+        "data/images/ski_002/cover.png"
       ],
       "topic_id": "ski_002",
       "track": "skill",
@@ -226,9 +226,9 @@
         "首图prompt：小红书封面3:4竖版，before-after左右对比，左侧灰底展示AI客服味长篇公式化回复（'首先/其次/祝你生活愉快'划红线），右侧高饱和橙底展示短句毒舌分身回复，中间粗箭头，顶部粗黑体大字'喂了3年聊天记录'，底部小字'AI比我还像我'，撞色高对比，emoji贴纸点缀，小红书爆款封面风格",
         "内页图prompt：skill配置流程图，横向5步箭头：微信记录导出→清洗筛选500条→做成few-shot样本→注入system prompt→数字分身上线，扁平插画风，橙白配色，步骤圆圈编号，小红书内页排版风格"
       ],
-      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_003/skill_script.txt",
+      "skill_script_path": "data/images/ski_003/skill_script.txt",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_003/cover.png"
+        "data/images/ski_003/cover.png"
       ],
       "topic_id": "ski_003",
       "track": "skill",
@@ -251,9 +251,9 @@
         "小红书封面,before-after对比构图:左边灰色便签写「500行模板→复制报错→劝退劝退」配崩溃表情贴纸,右边亮色便签写「20行最小Skill→一次跑通✅」,中间手绘大箭头,顶部醒目标题大字「20行写出你的第一个Skill」,奶油白底色+圆角贴纸风+高对比文字,小红书爆款封面风格",
         "内页流程图:三个圆角卡片从左到右用箭头连接——「身份卡SKILL(name/描述/触发词)」→「干活的run函数(输入→输出)」→「调度器dispatch(命中触发词?接单:放行)」,手绘白板风,配小图标🪪⚙️🎯,清晰简洁,适合小白理解的极简示意图"
       ],
-      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_004/skill_script.txt",
+      "skill_script_path": "data/images/ski_004/skill_script.txt",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_004/cover.png"
+        "data/images/ski_004/cover.png"
       ],
       "topic_id": "ski_004",
       "track": "skill",
@@ -276,9 +276,9 @@
         "小红书封面，3:4竖版，左右对比图：左半边灰蓝色调，文字“我：被客服踢皮球第8次😭”，配一个瘫倒的卡通小人；右半边高饱和红橙色调，文字“AI：引用《消保法》第55条，反杀⚔️”，配一个戴墨镜的酷飒机器人卡通形象；中间大号VS标志，粗黑描边字体，贴纸风+高斯模糊背景，点击率拉满的封面构图",
         "小红书封面备选，3:4竖版，手绘风流程图：从上到下四个色块阶梯依次标注“礼貌施压→证据反杀→规则压制→掀桌预警”，每级阶梯配一个火焰emoji，顶部大标题“吵架skill四档火力”，底部小字“aggression=7”，白底+橙色主色调，信息图风格清晰易读"
       ],
-      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_005/skill_script.txt",
+      "skill_script_path": "data/images/ski_005/skill_script.txt",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_005/cover.png"
+        "data/images/ski_005/cover.png"
       ],
       "topic_id": "ski_005",
       "track": "skill",
@@ -337,9 +337,9 @@
       "image_prompts": [
         "小红书封面,before-after左右分屏对比图:左侧红色系标注'超长prompt翻车',配乱码文字与崩溃警告贴纸;右侧绿色系标注'Skill 20行搞定',配整齐输出与绿色对勾;中间大箭头从左指向右;顶部大字标题'prompt熬一天 skill十分钟搞定';扁平插画风,高饱和撞色,大字报排版,3:4竖版"
       ],
-      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_006/skill_script.txt",
+      "skill_script_path": "data/images/ski_006/skill_script.txt",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_006/cover.png"
+        "data/images/ski_006/cover.png"
       ],
       "topic_id": "ski_006",
       "track": "skill",
@@ -363,9 +363,9 @@
         "内页prompt:横向流程图，agent调用请求→guard闸门→白名单/时段/人工确认/黑名单四道关卡→沙箱执行，每步配中文标注和锁图标，扁平科技风插画，小清新配色",
         "内页prompt:代码卡片风格，深色IDE背景展示Python权限白名单配置代码带语法高亮，四周点缀小锁和盾牌emoji贴纸，小红书知识博主晒码风格"
       ],
-      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_007/skill_script.txt",
+      "skill_script_path": "data/images/ski_007/skill_script.txt",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_007/cover.png"
+        "data/images/ski_007/cover.png"
       ],
       "topic_id": "ski_007",
       "track": "skill",
@@ -388,9 +388,9 @@
         "首图:左右before-after对比,左侧'手动三步'乱线+复制粘贴疲惫表情,右侧'一键链式调用'清爽流程图(关键词→采集→成稿→配图→成品三件套),奶油色背景+大字标题'skill套skill',小红书封面风格,3:4竖版",
         "内页:深色IDE代码截图风,展示pipeline目录树+run_skill三步调用高亮,荧光绿注释箭头标注参数流向"
       ],
-      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_008/skill_script.txt",
+      "skill_script_path": "data/images/ski_008/skill_script.txt",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_008/cover.png"
+        "data/images/ski_008/cover.png"
       ],
       "topic_id": "ski_008",
       "track": "skill",
@@ -409,9 +409,9 @@
       "md_filename": "thesis-defense-template.md",
       "cover_prompt": "干净暖色调书桌场景，笔记本电脑屏幕上显示简洁PPT大纲与「3天倒计时」进度条，旁边摊开的论文、咖啡杯和手写便签，画面中央大字标题「答辩前3天 AI救回我的PPT」，下方小字「11页全稿直接抄」，暖橙色+奶油白配色，文字感突出，3:4竖版，不出现真实人脸",
       "markdown": "# 三天极限答辩PPT · 全稿直接照抄模板\n\n> **适用场景**：本科/硕士毕业答辩临期冲刺，论文已成稿但PPT没着落，3天内要交出完整答辩稿。\n> **建议页数**：11页",
-      "md_file": "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_002/thesis-defense-template.md",
+      "md_file": "data/ppt_templates/ppt_002/thesis-defense-template.md",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_002/cover.png"
+        "data/ppt_templates/ppt_002/cover.png"
       ],
       "topic_id": "ppt_002",
       "track": "ppt",
@@ -430,9 +430,9 @@
       "md_filename": "thesis-defense-ppt-template.md",
       "cover_prompt": "奶油暖色调桌面俯拍，摊开的论文打印稿、荧光笔与便利贴，中间一张PPT打印页被红笔圈出三处修改痕迹，顶部大字标题「答辩被批后，我才改对这3页PPT」，角落便利贴手写「避坑」二字，柔和自然光，干净文档氛围，3:4竖版，不出现真实人脸",
       "markdown": "# 答辩避坑PPT完整文案模板｜3大挨批页修改对照版\n\n> 适用场景：本科/硕士毕业答辩、开题与中期汇报，专治框架图乱、创新点虚、结论散三大高频挨批点\n> 建议页数：10页（第4、6、7页为挨批重灾区，附修改前后对照）\n> 使用方法：复制每页【页面文案】下的内容到PPT文本框，将XX替换为你的课题关键词即可\n\n---\n\n## 第1页 · 封面 · 答辩开场页\n\n**页面文案**\n\n主标题：基于XX的XX优化研究——以XX为研究对象\n副标题：20XX届本科（硕士）学位论文答辩\n信息行：答辩人：XXX｜指导教师：XXX 教授｜专业：XXXX｜答辩日期：20XX年X月X日\n\n**演讲备注**\n\n开场30秒别念标题，直接说“各位老师好，我汇报的题目是XX，将从研究框架、结果与创新点、结论三部分展开，预计X分钟”。先报结构，给评委吃定心丸。\n\n**排版建议**\n\n白底加校徽主色，标题居中占上三分之一，信息一行排完，留白多于文字。\n\n---\n\n## 第2页 · 目录 · 汇报框架\n\n**页面文案**\n\n本次汇报共四部分：\n\n1. 研究背景与问题提出——为什么做这个题\n2. 研究框架与方法——怎么做的\n3. 结果与创新点——做出了什么\n4. 结论与不足——做到了什么程度\n\n一句话主线：本文围绕XX问题，采用XX方法，回答“XX在XX条件下是否有效”这一核心问题。\n\n**演讲备注**\n\n目录页20秒带过，关键是把四部分串成一句逻辑主线，让评委先看到骨架再听细节，后面被提问也跑不出这条线。\n\n---\n\n## 第3页 · 背景 · 研究背景与问题提出\n\n**页面文案**\n\n现实背景：XX领域近三年XX指标年均增长X%（数据来源：XX统计年鉴），但现有方案存在A、B、C三类不足。\n\n研究缺口：现有研究多聚焦XX层面，对XX情境下的XX机制关注不足。\n\n研究问题：在XX条件下，XX方法能否有效提升XX——本文全文围绕这一个问题展开。\n\n**演讲备注**\n\n背景只讲两件事：问题真实存在、现有研究没解决。最后必须落到一个明确的研究问题上，这是评委判断你会不会做研究的第一道关。\n\n**排版建议**\n\n左栏一张趋势图，右栏三段文字，研究问题用色块加粗突出。\n\n---\n\n## 第4页 · 方法 · 研究框架页（挨批重灾区①）\n\n**页面文案**\n\n翻车版对照：只放一张彩色流程图，箭头乱飞，评委反问“这张图到底想说明什么”。\n\n修改后文案：本文研究框架分三层——\n\n1. 问题层：界定XX问题的三个维度（维度A、维度B、维度C）\n2. 方法层：与三个维度一一对应，分别采用XX方法、XX模型、XX实验\n3. 验证层：用XX数据集（共N条样本）验证有效性，输出评价指标XX\n\n- 自检一：每层输入来自上一层输出，方法不悬空\n- 自检二：箭头只从上往下，不存在回头线\n\n**演讲备注**\n\n先说“框架分三层”，再逐层指图各讲一句。改图口诀是三层以内、箭头只从上往下，评委一眼看懂，就不会纠缠图本身。\n\n**排版建议**\n\n框架图删掉全部装饰色，只用主色加灰，每层一条色块纵向排列。\n\n---\n\n## 第5页 · 数据 · 研究结果页\n\n**页面文案**\n\n- 实验设置：基线为XX方法，数据集XX共N条，按X:X:X划分，评价指标为XX与XX\n- 核心结果：本文方法在XX指标上达到X.X，较最优基线提升X.X%；在XX场景下优势最大，提升",
-      "md_file": "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_003/thesis-defense-ppt-template.md",
+      "md_file": "data/ppt_templates/ppt_003/thesis-defense-ppt-template.md",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_003/cover.png"
+        "data/ppt_templates/ppt_003/cover.png"
       ],
       "topic_id": "ppt_003",
       "track": "ppt",
@@ -451,9 +451,9 @@
       "md_filename": "thesis-defense-template.md",
       "cover_prompt": "干净的暖光书桌俯拍氛围，摊开的笔记本与打印好的PPT大纲纸，纸上突出“答辩PPT·10页万能结构”的主题文字感，旁边一杯咖啡和一支笔，米白底+橙色点缀，简洁排版，3:4竖版，不出现真实人脸",
       "markdown": "# 答辩PPT万能结构模板（10页公式版）\n\n> 适用场景：本科/硕士毕业答辩、开题答辩、结题汇报\n> 建议页数：核心10页＝封面1+背景2+方法3+结果3+总结1，另附目录、致谢2页，合计12页\n> 使用方法：把每页【页面文案】下的内容复制进PPT文本框，替换【】内为你的课题信息，再照【演讲备注】练口播即可上台\n\n---\n\n## 第1页 · 封面 · 开场定调\n\n**页面文案**\n\n论文题目：《【你的论文标题】》\n答辩人：【姓名】｜学号：【学号】\n指导教师：【导师姓名】\n【学院名称】·【专业名称】｜【答辩日期】\n\n**演讲备注**\n\n上台先站定再开口：各位老师好，我是【姓名】，今天汇报的题目是《……》，下面开始我的答辩。报题目时放慢语速，让老师看清标题。\n\n**排版建议**：白底加校徽，标题居中占上半屏，信息不超过三行。\n\n---\n\n## 第2页 · 目录 · 汇报框架\n\n**页面文案**\n\n本次汇报共五个部分：\n1. 研究背景与意义——为什么做这个题\n2. 研究现状综述——别人做到了哪一步\n3. 研究方法与设计——我具体怎么做\n4. 结果与分析——我做出了什么\n5. 结论与展望——价值与不足\n\n**演讲备注**\n\n一句话带过即可：我的汇报分五个部分，重点在方法与结果，请各位老师批评指正。全程15秒内，不要逐条念。\n\n**排版建议**：左侧序号01-05，右侧对应标题，五行以内。\n\n---\n\n## 第3页 · 背景 · 选题背景与意义\n\n**页面文案**\n\n现实痛点：据【机构/文献】统计，【领域】中XX问题的发生率已达XX%，传统处理方式难以为继。\n研究缺口：现有方案在【具体环节】仍有局限，集中表现为效率低、成本高或精度不足。\n核心问题：本研究聚焦【具体问题】，尝试回答——【一句话研究问题】。\n\n**演讲备注**\n\n按“痛点—缺口—价值”三句话讲清选题逻辑，每句不超过10秒。最后那句核心研究问题是全篇答辩的锚点，要放慢加重。\n\n**排版建议**：三段纵排，核心问题单独加粗放大。\n\n---\n\n## 第4页 · 背景 · 研究现状综述\n\n**页面文案**\n\n国内研究：以【学者A】为代表的团队提出【方法/观点】，解决了【某问题】。\n国外研究：【学者B】等在【年份】构建【理论/模型】，将【某指标】提升至【水平】。\n小结：已有成果集中于【方向A】与【方向B】，但在【某环节】仍属空白——这正是本文的切入点。\n\n**演讲备注**\n\n不要念文献，只讲脉络：谁做了什么、做到什么程度、还差什么。结尾一句“这正是本文的切入点”加重语气，自然过渡到方法部分。\n\n**排版建议**：国内外各一块，小结句放底部色块突出。\n\n---\n\n## 第5页 · 方法 · 技术路线\n\n**页面文案**\n\n本研究遵循“提出问题—构建方案—验证分析—归纳结论”的技术路线：\n1. 基于【第3页痛点】界定研究对象与范围；\n2. 设计【模型/框架/问卷/算法】，核心变量为【A】与【B】；\n3. 通过【实验/调研/仿真】完成数据验证；\n4. 归纳结论并提出对策建议。\n\n**演讲备注**\n\n这页配一张技术路线图，讲的时候沿图从左到右走一遍，不展开细节。强调四步环环相扣，为后面结果页做铺垫。\n\n**排版建议**：横向箭头流程图居中占版面，每步一行字。\n\n---\n\n## 第6页 · 方法 · 数据与研究方法\n\n**页面文案**\n\n数据来源：采用【问卷/实验/公开数据集】，有效样本【N】份，采集时间为【时间段】。\n研究方法包括——\n1. 【问卷调查法】：获取【什么信息】；\n2. 【回归分析/对照实验】：验证【变量间什么关系】；\n3. 【半结构化访谈】：解释【数据背后的原因】。\n\n**演讲备注**\n\n老师最关心数据可信度，重点讲清样本量、抽样方式和工具信效度。提前备好“为什么选这个方法而不是别的”的答问。\n\n**排版建议**：左栏数据信息、右栏方法列表，短句呈现。\n\n---\n\n## 第7页 · 方法 · 本文创新点\n\n**页面文案**\n\n与现有研究相比，本文创新有三：\n1. 视角创新：首次从【角度】切入【问题】，突破以往【旧角度】的局限；\n2. 方法创新：将【方法X】引入【领域Y】，弥补了传统方法【什么缺陷】；\n3. 应用创新：结论可直接服务于【场景】，具备落地条件。\n\n**演讲备注**\n\n创新点宁少勿多，最多三个且每个都要有前文支撑。用对比句式讲：以往研究如何，本文则如何，突出差异化。\n\n**排版建议**：三张并列卡片，每",
-      "md_file": "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_004/thesis-defense-template.md",
+      "md_file": "data/ppt_templates/ppt_004/thesis-defense-template.md",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_004/cover.png"
+        "data/ppt_templates/ppt_004/cover.png"
       ],
       "topic_id": "ppt_004",
       "track": "ppt",
@@ -504,9 +504,9 @@
       "反馈机制": "希望每季度有30分钟一对一复盘",
       "及时校准方向\n\n**演讲备注**\n\n要资源要具体": "多少、用在哪、换什么结果。敢于提需求反而显出规划感——领导评估的是投入产出比。\n\n**排版建议**\n\n三点竖排",
       "每点前加关键词标签": "授权、资源、反馈。\n\n---\n\n## 第10页 · 总结 · 一页记住我这一年\n\n**页面文案**\n\n如果今天只记住三句话:\n\n- 我用98%的交付率和3个关键项目,证明了值得托付\n- 我把每一次踩坑,都变成了可复用的方法\n- 明年,我想把",
-      "md_file": "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_005/year-end-review-ppt.md",
+      "md_file": "data/ppt_templates/ppt_005/year-end-review-ppt.md",
       "image_paths": [
-        "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_005/cover.png"
+        "data/ppt_templates/ppt_005/cover.png"
       ],
       "topic_id": "ppt_005",
       "track": "ppt",

@@ -25,6 +25,14 @@ PRODUCED_PATH = DATA_DIR / "produced.json"
 OPENCLAW_PATH = Path.home() / ".openclaw" / "openclaw.json"
 
 
+def rel(p):
+    """数据里只存相对项目根的路径,保证 produced.json 可跨机器/部署目录迁移"""
+    try:
+        return str(Path(p).resolve().relative_to(PLAN_DIR.resolve()))
+    except (ValueError, OSError):
+        return str(p)
+
+
 def load_providers():
     oc = json.load(open(OPENCLAW_PATH, "r", encoding="utf-8"))
     return oc.get("models", {}).get("providers", {})
@@ -157,7 +165,7 @@ def produce_tutorial(providers, topic, topic_dir):
             if p:
                 image_paths.append(p)
 
-    data["image_paths"] = image_paths
+    data["image_paths"] = [rel(p) for p in image_paths]
     return data
 
 
@@ -198,9 +206,9 @@ def produce_skill(providers, topic, topic_dir):
     if data.get("skill_script"):
         code_path = topic_dir / "skill_script.txt"
         code_path.write_text(data["skill_script"], encoding="utf-8")
-        data["skill_script_path"] = str(code_path)
+        data["skill_script_path"] = rel(code_path)
 
-    data["image_paths"] = image_paths
+    data["image_paths"] = [rel(p) for p in image_paths]
     return data
 
 
@@ -276,7 +284,7 @@ def produce_ppt(providers, topic, topic_dir):
     md_name = "".join(c for c in md_name if c.isalnum() or c in "-_.")
     md_path = topic_dir / md_name
     md_path.write_text(md_content, encoding="utf-8")
-    data["md_file"] = str(md_path)
+    data["md_file"] = rel(md_path)
 
     # 2. 封面图
     image_paths = []
@@ -284,7 +292,7 @@ def produce_ppt(providers, topic, topic_dir):
     p = gen_image(cover_prompt + ",小红书封面风格,3:4竖版", topic_dir, "cover")
     if p:
         image_paths.append(p)
-    data["image_paths"] = image_paths
+    data["image_paths"] = [rel(p) for p in image_paths]
     return data
 
 

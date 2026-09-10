@@ -16,6 +16,13 @@ if (!function_exists('str_contains')) {
     }
 }
 
+// 把数据里的相对路径(data/...)稳定解析到项目根;兼容历史绝对路径(跨机器部署)
+function resolve_project_path(string $rel): ?string {
+    if (is_file($rel)) return $rel;
+    $abs = PLAN_DIR . '/' . ltrim($rel, '/');
+    return is_file($abs) ? $abs : null;
+}
+
 define('PLAN_DIR', __DIR__);
 define('DATA_DIR', PLAN_DIR . '/data');
 define('PRODUCED_PATH', DATA_DIR . '/produced.json');
@@ -85,13 +92,15 @@ function get_post(string $id): array {
                 return 'api.php?action=image&path=' . urlencode($p);
             }, $p['image_paths'] ?? []);
             // skill script 内容
-            if (isset($p['skill_script_path']) && is_file($p['skill_script_path'])) {
-                $p['skill_script_content'] = file_get_contents($p['skill_script_path']);
+            if (isset($p['skill_script_path'])) {
+                $sp = resolve_project_path($p['skill_script_path']);
+                if ($sp) $p['skill_script_content'] = file_get_contents($sp);
             }
             // markdown 模板内容 + 下载链接
             if (isset($p['md_file'])) {
-                if (is_file($p['md_file'])) {
-                    $p['md_content'] = file_get_contents($p['md_file']);
+                $mf = resolve_project_path($p['md_file']);
+                if ($mf) {
+                    $p['md_content'] = file_get_contents($mf);
                 }
                 $p['md_name'] = basename($p['md_file']);
                 $p['md_download_url'] = 'api.php?action=md_download&id=' . urlencode($id);
@@ -207,8 +216,8 @@ function get_stats(): array {
 }
 
 function serve_image(string $path) {
-    // 只允许 data/images 下的图片
-    $real = realpath($path);
+    // 只允许 data/images 下的图片;基于 __DIR__ 解析,兼容 php-fpm(工作目录不一定是站点根)
+    $real = realpath(PLAN_DIR . '/' . ltrim($path, '/'));
     $images_root = realpath(DATA_DIR . '/images');
     $ppt_root = realpath(DATA_DIR . '/ppt_templates');
     if (!$real || !$images_root || !str_starts_with_safe($real, $images_root) &&
@@ -241,7 +250,8 @@ function serve_md(string $id) {
     foreach ($data['posts'] ?? [] as $p) {
         if (($p['topic_id'] ?? '') === $id && isset($p['md_file'])) {
             $f = $p['md_file'];
-            $real = realpath($f);
+            $real = realpath(PLAN_DIR . '/' . ltrim($f, '/'));
+            if (!$real) $real = realpath($f); // 兼容历史绝对路径记录
             // 白名单:必须在 data/ppt_templates 下,且扩展名为 .md
             if (!$real || !$ppt_root || !str_starts_with_safe($real, $ppt_root)
                 || strtolower(pathinfo($real, PATHINFO_EXTENSION)) !== 'md'
