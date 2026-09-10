@@ -39,7 +39,7 @@
 ## 目录结构
 
 ```
-_plan/
+Xiaohongshu-multi-agent-workflow/
 ├── index.html            # 本地看板：作品墙/详情/源码查看/流程说明（三轨色标）
 ├── api.php               # 只读 JSON API + 图片白名单代理（单文件，无框架）
 ├── collect_config.yaml   # 赛道/三轨种子词/LLM provider 选择（不含密钥）
