@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多智能体流水线 · 小红书内容工坊</title>
+<style>
+:root{
+  --bg:#fafbfc; --card:#fff; --border:#e5e7eb; --text:#1f2937; --muted:#6b7280;
+  --primary:#ef4444; --primary-d:#dc2626; --accent:#3b82f6; --tag-bg:#fef3c7; --tag-tx:#92400e;
+  --code-bg:#1e1e2e; --code-tx:#cdd6f4;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* Header */
+.header{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo{font-size:20px;font-weight:700;display:flex;align-items:center;gap:8px}
+.logo .badge{background:var(--primary);color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600}
+.stats{display:flex;gap:16px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.stats b{color:var(--text)}
+.stats .stat-tut{color:#10b981}
+.stats .stat-ski{color:#8b5cf6}
+.stats .stat-ppt{color:#f59e0b}
+
+/* Tabs */
+.tabs{display:flex;gap:4px;background:#fff;border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:73px;z-index:99}
+.tabs-inner{max-width:1400px;margin:0 auto;display:flex;gap:4px;width:100%}
+.tab{padding:14px 20px;font-size:14px;color:var(--muted);border-bottom:2px solid transparent;transition:all .15s}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--primary);border-bottom-color:var(--primary);font-weight:600}
+.tab .count{background:#f3f4f6;padding:1px 7px;border-radius:10px;font-size:11px;margin-left:4px}
+.tab.active .count{background:var(--primary);color:#fff}
+
+/* Container */
+.container{max-width:1400px;margin:0 auto;padding:24px}
+.view{display:none}
+.view.active{display:block}
+
+/* Filter bar */
+.filter-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.filter-btn{padding:6px 14px;border-radius:20px;background:#fff;border:1px solid var(--border);font-size:13px;color:var(--muted)}
+.filter-btn.active{background:var(--text);color:#fff;border-color:var(--text)}
+.search{flex:1;min-width:200px;padding:8px 14px;border:1px solid var(--border);border-radius:20px;font-size:14px;min-width:200px}
+
+/* Post grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.post-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s}
+.post-card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.post-card .thumb{width:100%;aspect-ratio:3/4;background:#f3f4f6;overflow:hidden;position:relative}
+.post-card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.post-card .thumb-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:32px}
+.post-card .track-tag{position:absolute;top:8px;left:8px;padding:3px 8px;border-radius:4px;font-size:11px;color:#fff;font-weight:600}
+.track-tutorial .track-tag{background:#10b981}
+.track-skill .track-tag{background:#8b5cf6}
+.track-ppt .track-tag{background:#f59e0b}
+.post-card .body{padding:12px}
+.post-card .title{font-size:14px;font-weight:600;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.post-card .meta{display:flex;gap:8px;margin-top:8px;font-size:11px;color:var(--muted);flex-wrap:wrap}
+.post-card .meta .chip{background:#f3f4f6;padding:2px 6px;border-radius:4px}
+.post-card .badges{position:absolute;top:8px;right:8px;display:flex;gap:4px}
+.post-card .badge-ico{background:rgba(0,0,0,.6);color:#fff;border-radius:4px;padding:2px 6px;font-size:10px}
+
+/* Detail */
+.detail-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;display:none;overflow-y:auto}
+.detail-overlay.show{display:block}
+.detail-modal{max-width:900px;margin:40px auto;background:#fff;border-radius:12px;overflow:hidden}
+.detail-header{padding:20px 24px;border-bottom:1px solid var(--border);position:sticky;top:0;background:#fff;z-index:1}
+.detail-close{float:right;font-size:24px;color:var(--muted);line-height:1}
+.detail-title{font-size:20px;font-weight:700;line-height:1.3;margin-right:30px}
+.detail-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.detail-tags .tag{background:var(--tag-bg);color:var(--tag-tx);padding:3px 10px;border-radius:12px;font-size:12px}
+.detail-body{padding:24px}
+.detail-section{margin-bottom:28px}
+.detail-section h3{font-size:15px;font-weight:600;margin-bottom:12px;color:var(--text);padding-bottom:6px;border-bottom:1px solid var(--border)}
+.detail-body-text{white-space:pre-wrap;font-size:14px;line-height:1.8;color:#374151}
+.detail-images{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.detail-images img{width:100%;border-radius:8px;cursor:pointer}
+.detail-images .img-wrap{position:relative}
+.detail-images .img-label{position:absolute;bottom:4px;left:4px;background:rgba(0,0,0,.6);color:#fff;font-size:11px;padding:2px 6px;border-radius:4px}
+.code-block{background:var(--code-bg);color:var(--code-tx);padding:16px;border-radius:8px;overflow-x:auto;font-family:"SF Mono",Consolas,monospace;font-size:12.5px;line-height:1.6;max-height:500px;overflow-y:auto;white-space:pre}
+.code-block .lang{color:#a6accd;float:right;font-size:11px}
+.demo-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.demo-box{background:#f9fafb;border:1px solid var(--border);border-radius:8px;padding:12px;font-size:13px}
+.demo-box h4{font-size:12px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.slide-list{display:flex;flex-direction:column;gap:8px}
+.slide-item{background:#f9fafb;border-left:3px solid var(--accent);padding:10px 14px;border-radius:4px}
+.slide-item .slide-title{font-weight:600;font-size:14px}
+.slide-item .slide-bullets{margin-top:6px;font-size:12px;color:#4b5563;padding-left:16px}
+.slide-item .slide-bullets li{margin-bottom:2px}
+.md-download{display:inline-block;background:#f59e0b;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:600;margin-bottom:12px}
+.md-download:hover{text-decoration:none;background:#d97706}
+.md-actions{display:flex;gap:8px;margin-bottom:14px}
+.md-toggle{padding:8px 14px;border-radius:6px;font-size:13px;border:1px solid var(--border);color:var(--muted);background:#fff}
+.md-toggle.active{background:var(--text);color:#fff;border-color:var(--text)}
+
+/* Markdown 文档渲染 */
+.md-doc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:28px 32px;font-size:14.5px;line-height:1.85;color:#2b2f38}
+.md-doc h1{font-size:23px;font-weight:800;margin-bottom:14px;padding-bottom:12px;border-bottom:2px solid #f59e0b;color:#111827}
+.md-doc h2{font-size:17.5px;font-weight:700;margin:26px 0 10px;padding:8px 12px;background:linear-gradient(90deg,#fff7ed,#fff);border-left:4px solid #f59e0b;border-radius:0 6px 6px 0;color:#92400e}
+.md-doc h3{font-size:15px;font-weight:700;margin:16px 0 6px;color:#374151}
+.md-doc p{margin:8px 0}
+.md-doc ul,.md-doc ol{margin:8px 0;padding-left:24px}
+.md-doc li{margin:4px 0}
+.md-doc li>ul,.md-doc li>ol{margin:4px 0}
+.md-doc blockquote{margin:12px 0;padding:10px 16px;background:#fefce8;border-left:4px solid #eab308;border-radius:0 6px 6px 0;color:#713f12;font-size:13.5px}
+.md-doc blockquote p{margin:3px 0}
+.md-doc hr{border:none;border-top:1px dashed #d1d5db;margin:20px 0}
+.md-doc strong{color:#111827;font-weight:700}
+.md-doc code{background:#f3f4f6;padding:1px 6px;border-radius:4px;font-family:"SF Mono",Consolas,monospace;font-size:12.5px;color:#be185d}
+.md-doc a{color:#2563eb}
+.md-raw{background:var(--code-bg);color:var(--code-tx);padding:20px;border-radius:8px;font-family:"SF Mono",Consolas,monospace;font-size:12.5px;line-height:1.7;white-space:pre-wrap;word-break:break-word;max-height:600px;overflow-y:auto;margin:0}
+
+/* Flow view */
+.flow-container{background:#fff;border-radius:12px;padding:32px;border:1px solid var(--border)}
+.flow-step{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:20px 0;border-bottom:1px dashed var(--border);position:relative}
+.flow-step:last-child{border-bottom:none}
+.flow-num{font-size:48px;font-weight:800;color:var(--primary);opacity:.15;text-align:center;line-height:1}
+.flow-step-content h3{font-size:18px;font-weight:700;margin-bottom:6px}
+.flow-step-content .script{font-family:monospace;background:#f3f4f6;padding:2px 8px;border-radius:4px;font-size:12px;color:var(--accent)}
+.flow-step-content .meta-row{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:8px 0}
+.flow-step-content .meta-row b{color:var(--text)}
+.flow-step-content .stats-row{display:flex;gap:12px;margin:10px 0}
+.flow-step-content .stat-pill{background:#eff6ff;color:#1e40af;padding:4px 12px;border-radius:12px;font-size:12px}
+.flow-step-content .purpose{font-size:14px;color:#4b5563;line-height:1.6}
+.flow-arrow{text-align:center;color:var(--muted);font-size:20px;margin:-8px 0}
+
+/* Code view */
+.code-viewer{display:grid;grid-template-columns:240px 1fr;gap:0;background:#fff;border-radius:12px;overflow:hidden;border:1px solid var(--border);min-height:600px}
+.script-list{background:#1e1e2e;color:#cdd6f4;padding:12px 0;overflow-y:auto}
+.script-list h4{color:#a6accd;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:0 16px 8px}
+.script-item{padding:10px 16px;cursor:pointer;font-family:monospace;font-size:13px;border-left:3px solid transparent}
+.script-item:hover{background:#313244}
+.script-item.active{background:#313244;border-left-color:var(--primary);color:#fff}
+.script-item .size{font-size:11px;color:#6c7086;float:right}
+.code-display{background:#1e1e2e;color:#cdd6f4;padding:0;overflow:auto}
+.code-display pre{margin:0;padding:16px;font-family:"SF Mono",Consolas,monospace;font-size:12.5px;line-height:1.6;white-space:pre;tab-size:4}
+.code-display .file-header{padding:12px 16px;background:#181825;border-bottom:1px solid #313244;font-family:monospace;font-size:13px;color:#a6accd}
+
+.empty{padding:60px 20px;text-align:center;color:var(--muted)}
+
+@media(max-width:768px){
+  .stats{display:none}
+  .tabs-inner{overflow-x:auto}
+  .code-viewer{grid-template-columns:1fr}
+  .script-list{max-height:200px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span>多智能体流水线</span>
+      <span class="badge">小红书工坊</span>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="tabs-inner">
+    <button class="tab active" data-view="posts">作品 <span class="count" id="count-posts">0</span></button>
+    <button class="tab" data-view="flow">实现流程</button>
+    <button class="tab" data-view="code">源代码</button>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- 作品视图 -->
+  <div class="view active" id="view-posts">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-track="">全部</button>
+      <button class="filter-btn" data-track="tutorial">AI教程</button>
+      <button class="filter-btn" data-track="skill">Skill</button>
+      <button class="filter-btn" data-track="ppt">PPT</button>
+      <input class="search" id="search" placeholder="搜索标题/标签...">
+    </div>
+    <div class="grid" id="post-grid"></div>
+    <div class="empty" id="post-empty" style="display:none">暂无匹配作品</div>
+  </div>
+
+  <!-- 流程视图 -->
+  <div class="view" id="view-flow">
+    <div class="flow-container" id="flow-content"></div>
+  </div>
+
+  <!-- 源代码视图 -->
+  <div class="view" id="view-code">
+    <div class="code-viewer">
+      <div class="script-list">
+        <h4>脚本文件</h4>
+        <div id="script-list"></div>
+      </div>
+      <div class="code-display">
+        <div class="file-header" id="code-file">选择左侧文件查看源码</div>
+        <pre id="code-content"></pre>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 详情弹窗 -->
+<div class="detail-overlay" id="detail-overlay">
+  <div class="detail-modal" id="detail-modal"></div>
+</div>
+
+<script>
+const API = 'api.php';
+let POSTS = [];
+let SCRIPTS = [];
+
+// ============ Tab 切换 ============
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('view-' + t.dataset.view).classList.add('active');
+    if (t.dataset.view === 'flow' && !document.getElementById('flow-content').innerHTML) loadFlow();
+    if (t.dataset.view === 'code' && !SCRIPTS.length) loadScripts();
+  });
+});
+
+// ============ 统计 ============
+fetch(API + '?action=stats').then(r => r.json()).then(d => {
+  const s = document.getElementById('stats');
+  const by = d.by_track || {};
+  s.innerHTML = `
+    <span>总成品 <b>${d.total}</b></span>
+    <span class="stat-tut">教程 <b>${by.tutorial || 0}</b></span>
+    <span class="stat-ski">Skill <b>${by.skill || 0}</b></span>
+    <span class="stat-ppt">PPT <b>${by.ppt || 0}</b></span>
+    <span>配图 <b>${d.total_images}</b></span>
+    <span>MD模板 <b>${d.total_md}</b></span>
+  `;
+  document.getElementById('count-posts').textContent = d.total;
+});
+
+// ============ 作品列表 ============
+const trackEmoji = {tutorial: '📖', skill: '🛠️', ppt: '📊'};
+const trackLabel = {tutorial: '教程', skill: 'Skill', ppt: 'PPT'};
+
+async function loadPosts() {
+  const r = await fetch(API + '?action=list');
+  const d = await r.json();
+  POSTS = d.posts || [];
+  renderPosts();
+}
+
+function renderPosts() {
+  const grid = document.getElementById('post-grid');
+  const track = document.querySelector('.filter-btn.active')?.dataset.track || '';
+  const q = document.getElementById('search').value.toLowerCase();
+  const list = POSTS.filter(p => {
+    if (track && p.track !== track) return false;
+    if (q && !p.title.toLowerCase().includes(q) && !(p.tags || []).join(' ').toLowerCase().includes(q)) return false;
+    return true;
+  });
+  document.getElementById('post-empty').style.display = list.length ? 'none' : 'block';
+  grid.innerHTML = list.map(p => {
+    const cover = p.cover_url || '';
+    const coverHtml = cover
+      ? `<img src="${cover}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=&quot;thumb-fallback&quot;>${trackEmoji[p.track]||'📄'}</div>'">`
+      : `<div class="thumb-fallback">${trackEmoji[p.track] || '📄'}</div>`;
+    const badges = [];
+    if (p.has_md) badges.push('<span class="badge-ico">MD</span>');
+    if (p.has_skill_script) badges.push('<span class="badge-ico">CODE</span>');
+    return `
+      <div class="post-card track-${p.track}" onclick="loadDetail('${p.topic_id}')">
+        <div class="thumb">
+          ${coverHtml}
+          <span class="track-tag">${trackLabel[p.track] || p.track}</span>
+          <div class="badges">${badges.join('')}</div>
+        </div>
+        <div class="body">
+          <div class="title">${esc(p.title)}</div>
+          <div class="meta">
+            <span class="chip">📷 ${p.image_count}</span>
+            <span class="chip">📝 ${p.body_len}</span>
+            ${(p.tags || []).slice(0, 2).map(t => `<span class="chip">${esc(t)}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ============ Filter ============
+document.querySelectorAll('.filter-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    renderPosts();
+  });
+});
+document.getElementById('search').addEventListener('input', renderPosts);
+
+// ============ 详情 ============
+async function loadDetail(id) {
+  const r = await fetch(API + `?action=post&id=${encodeURIComponent(id)}`);
+  const d = await r.json();
+  const p = d.post;
+  if (!p) return;
+  const modal = document.getElementById('detail-modal');
+  const images = (p.image_urls || []).map((u, i) => `
+    <div class="img-wrap">
+      <img src="${u}" loading="lazy" onclick="window.open('${u}')">
+      <span class="img-label">图 ${i + 1}</span>
+    </div>
+  `).join('');
+
+  let extra = '';
+  // Skill 代码
+  if (p.skill_script_content) {
+    extra += `
+      <div class="detail-section">
+        <h3>Skill 脚本</h3>
+        <pre class="code-block"><span class="lang">${p.skill_script_path.split('/').pop()}</span>${esc(p.skill_script_content)}</pre>
+      </div>
+      <div class="detail-section">
+        <h3>演示</h3>
+        <div class="demo-row">
+          <div class="demo-box"><h4>输入</h4><pre>${esc(p.demo_input || '')}</pre></div>
+          <div class="demo-box"><h4>输出</h4><pre>${esc(p.demo_output || '')}</pre></div>
+        </div>
+      </div>
+    `;
+  }
+  // Markdown 完整文案模板
+  if (p.md_content) {
+    extra += `
+      <div class="detail-section">
+        <h3>完整文案模板 (Markdown)</h3>
+        <div class="md-actions">
+          ${p.md_download_url ? `<a href="${p.md_download_url}" class="md-download">⬇ 下载 .md 文件</a>` : ''}
+          <button class="md-toggle active" onclick="toggleMdView(this,'rendered')">排版预览</button>
+          <button class="md-toggle" onclick="toggleMdView(this,'raw')">Markdown 原文</button>
+        </div>
+        <div class="md-doc md-view-rendered">${renderMarkdown(p.md_content)}</div>
+        <pre class="md-raw md-view-raw" style="display:none">${esc(p.md_content)}</pre>
+      </div>
+    `;
+  }
+
+  modal.innerHTML = `
+    <div class="detail-header">
+      <button class="detail-close" onclick="closeDetail()">×</button>
+      <div class="detail-title">${esc(p.title)}</div>
+      <div class="detail-tags">
+        ${(p.tags || []).map(t => `<span class="tag">#${esc(t)}</span>`).join('')}
+      </div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-section">
+        <h3>正文</h3>
+        <div class="detail-body-text">${esc(p.body)}</div>
+      </div>
+      ${images ? `<div class="detail-section"><h3>配图 (${p.image_urls.length})</h3><div class="detail-images">${images}</div></div>` : ''}
+      ${extra}
+    </div>
+  `;
+  document.getElementById('detail-overlay').classList.add('show');
+}
+
+function closeDetail() {
+  document.getElementById('detail-overlay').classList.remove('show');
+}
+document.getElementById('detail-overlay').addEventListener('click', e => {
+  if (e.target.id === 'detail-overlay') closeDetail();
+});
+
+// ============ 流程 ============
+async function loadFlow() {
+  const r = await fetch(API + '?action=flow');
+  const d = await r.json();
+  const c = document.getElementById('flow-content');
+  const steps = d.steps || [];
+  c.innerHTML = steps.map((s, i) => `
+    <div class="flow-step">
+      <div class="flow-num">${s.id}</div>
+      <div class="flow-step-content">
+        <h3>${s.name}</h3>
+        <div>脚本 <span class="script">${s.script || ''}</span></div>
+        <div class="meta-row">
+          <span>输入: <b>${s.input || ''}</b></span>
+          <span>输出: <b>${s.output || ''}</b></span>
+        </div>
+        <div class="stats-row">
+          ${Object.entries(s.stats || {}).map(([k, v]) => `<span class="stat-pill">${k}: ${v}</span>`).join('')}
+        </div>
+        <div class="purpose">${esc(s.purpose || '')}</div>
+      </div>
+    </div>
+    ${i < steps.length - 1 ? '<div class="flow-arrow">↓</div>' : ''}
+  `).join('') + `
+    <div style="margin-top:24px;padding:16px;background:#fef3c7;border-radius:8px;color:#92400e;font-size:13px">
+      <b>反馈闭环:</b> ${esc(d.feedback_loop || '')}
+    </div>
+  `;
+}
+
+// ============ 源代码 ============
+async function loadScripts() {
+  const r = await fetch(API + '?action=scripts');
+  const d = await r.json();
+  SCRIPTS = d.scripts || [];
+  const list = document.getElementById('script-list');
+  list.innerHTML = SCRIPTS.map((s, i) => `
+    <div class="script-item ${i === 0 ? 'active' : ''}" onclick="loadScript('${s.name}', this)">
+      ${s.name}
+      <span class="size">${(s.size / 1024).toFixed(1)}K</span>
+    </div>
+  `).join('');
+  if (SCRIPTS[0]) loadScript(SCRIPTS[0].name);
+}
+
+async function loadScript(name, el) {
+  document.querySelectorAll('.script-item').forEach(x => x.classList.remove('active'));
+  if (el) el.classList.add('active');
+  const r = await fetch(API + `?action=script&name=${encodeURIComponent(name)}`);
+  const d = await r.json();
+  document.getElementById('code-file').textContent = name + ' · ' + (d.size || 0) + ' bytes';
+  document.getElementById('code-content').textContent = d.content || '';
+}
+
+// ============ Markdown 渲染(轻量,支持标题/段落/引用/嵌套列表/分割线/行内格式) ============
+function mdInline(s) {
+  s = s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  s = s.replace(/`([^`]+)`/g, '<code>$1</code>');
+  s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+  s = s.replace(/(^|[\s(])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+  s = s.replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return s;
+}
+
+function mdBuildList(items) {
+  // items: [{depth, type, text}] 构建嵌套树并渲染
+  const root = { depth: -1, children: [] };
+  const stack = [root];
+  for (const it of items) {
+    while (stack.length > 1 && stack[stack.length - 1].depth >= it.depth) stack.pop();
+    const node = { depth: it.depth, type: it.type, text: it.text, children: [] };
+    stack[stack.length - 1].children.push(node);
+    stack.push(node);
+  }
+  const renderNodes = (nodes) => {
+    let out = '';
+    let i = 0;
+    while (i < nodes.length) {
+      const type = nodes[i].type;
+      let j = i;
+      while (j < nodes.length && nodes[j].type === type) j++;
+      out += `<${type}>`;
+      for (let k = i; k < j; k++) {
+        out += `<li>${mdInline(nodes[k].text)}${nodes[k].children.length ? renderNodes(nodes[k].children) : ''}</li>`;
+      }
+      out += `</${type}>`;
+      i = j;
+    }
+    return out;
+  };
+  return renderNodes(root.children);
+}
+
+function renderMarkdown(src) {
+  if (!src) return '';
+  const lines = src.replace(/\r\n/g, '\n').split('\n');
+  let html = '';
+  let para = [];
+  let quote = [];
+  let listItems = null;
+
+  const flushPara = () => {
+    if (para.length) { html += '<p>' + mdInline(para.join(' ')) + '</p>'; para = []; }
+  };
+  const flushQuote = () => {
+    if (quote.length) {
+      html += '<blockquote>' + quote.map(l => '<p>' + mdInline(l) + '</p>').join('') + '</blockquote>';
+      quote = [];
+    }
+  };
+  const flushList = () => {
+    if (listItems) { html += mdBuildList(listItems); listItems = null; }
+  };
+  const flushAll = () => { flushPara(); flushQuote(); flushList(); };
+
+  for (let raw of lines) {
+    const line = raw.replace(/\s+$/, '');
+    if (!line.trim()) { flushAll(); continue; }
+    if (/^-{3,}$/.test(line.trim())) {
+      flushAll(); html += '<hr>'; continue;
+    }
+    const hm = line.match(/^(#{1,4})\s+(.*)$/);
+    if (hm) {
+      flushAll();
+      html += `<h${hm[1].length}>${mdInline(hm[2])}</h${hm[1].length}>`;
+      continue;
+    }
+    const qm = line.match(/^>\s?(.*)$/);
+    if (qm) { flushPara(); flushList(); quote.push(qm[1]); continue; }
+    flushQuote();
+    const lm = line.match(/^(\s*)([-*]|\d+\.)\s+(.*)$/);
+    if (lm) {
+      flushPara();
+      const indent = lm[1].replace(/\t/g, '  ').length;
+      const depth = Math.floor(indent / 2);
+      const type = /\d+\./.test(lm[2]) ? 'ol' : 'ul';
+      if (!listItems) listItems = [];
+      listItems.push({ depth, type, text: lm[3] });
+      continue;
+    }
+    flushList();
+    para.push(line.trim());
+  }
+  flushAll();
+  return html;
+}
+
+function toggleMdView(btn, view) {
+  const section = btn.closest('.detail-section');
+  section.querySelectorAll('.md-toggle').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  section.querySelector('.md-view-rendered').style.display = view === 'rendered' ? '' : 'none';
+  section.querySelector('.md-view-raw').style.display = view === 'raw' ? '' : 'none';
+}
+
+// ============ 工具 ============
+function esc(s) {
+  return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+
+// 初始化
+loadPosts();
+</script>
+</body>
+</html>

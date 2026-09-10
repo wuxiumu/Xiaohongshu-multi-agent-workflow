@@ -1,0 +1,17 @@
+# 小红书多智能体内容生产流水线 (xhs-multi-agent-content-pipeline)
+
+> Python + LLM + Playwright + PHP 的小红书内容自动化框架。三个智能体依次执行：Collector 用 LLM 扩关键词并用 Playwright 抓取爆款样本；Judge 用纯 Python 规则评分、LLM 生成选题并排优先级；Executor 按 tutorial / skill / ppt 三轨组装可发布笔记。状态全部落 JSON 文件（collected.json → judged.json → produced.json），支持断点续跑。系统只产出本地待发布物料，永远不自动发帖。密钥存于项目外 ~/.openclaw/openclaw.json。
+
+核心事实：
+- 语言/运行时：Python 3.9+、PHP 7.4+、原生 HTML/CSS/JS；依赖 pyyaml、requests、playwright；图片由阿里云百炼 bl CLI 生成
+- 入口看板：php -S 后访问 index.html；只读 API 为单文件 api.php（list/post/stats/flow/scripts/script/image/md_download）
+- 安全边界：图片代理 realpath 白名单防目录穿越；无 API Key 入库；登录态 xhs_state.json 不入库；爬取限速 5-8 秒、单次 ≤50 条
+- 样板数据：data/produced.json 含 16 篇成品（8 skill / 4 tutorial / 4 ppt），图片未入库需运行 execute.py 重生成
+
+- [README](README.md): 完整文档：快速开始、API、架构、FAQ
+- [三智能体总览](00_总览.md): 业务定位、架构图、数据流转约定
+- [收集智能体](01_收集智能体.md): 关键词扩展与爆款抓取设计
+- [判断智能体](02_判断智能体.md): 评分规则与选题决策
+- [执行智能体](03_执行智能体.md): 三轨内容组装
+- [配置示例](collect_config.yaml): 赛道、三轨种子词、LLM provider 配置
+- [只读 API](api.php): 单文件 PHP 后端

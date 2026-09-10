@@ -1,0 +1,59 @@
+# 收集智能体配置 · AI教程+Skill+PPT赛道
+# 被 01 收集智能体的关键词扩展脚本读取
+
+niche: "AI教程+Skill+PPT变现"
+
+# LLM 调用配置(从 ~/.openclaw/openclaw.json 读取,这里只指定用哪个)
+llm:
+  provider: "zhipu"           # zhipu | bailian-token-plan
+  model: "GLM-5.3-Flash"      # 关键词扩展用 Flash,快且便宜
+  # GLM-5.3 / qwen3.8-max 也可,扩展质量更高但慢
+
+# 三轨种子词
+tracks:
+  tutorial:                 # 教程轨 50%
+    seeds:
+      - "AI教程"
+      - "ChatGPT教程"
+      - "AI工具"
+      - "AI效率"
+      - "AI办公"
+      - "AI作图"
+      - "AI写作"
+      - "AI副业"
+      - "智谱AI"
+      - "通义千问"
+      - "Gemini教程"
+    expand_per_seed: 5       # 每个种子词扩展 5 个长尾
+  skill:                    # Skill 轨 30%
+    seeds:
+      - "AI技能"
+      - "AI agent"
+      - "prompt工程"
+      - "自定义skill"
+      - "AI工作流"
+      - "AI助手"
+      - "Cursor教程"
+      - "Claude skill"
+      - "MCP协议"
+      - "AI自动化"
+    expand_per_seed: 5
+  ppt:                      # PPT 种草轨 20%
+    seeds:
+      - "AI生成PPT"
+      - "PPT模板"
+      - "AI做PPT"
+      - "办公PPT"
+      - "汇报PPT"
+      - "答辩PPT"
+      - "PPT模板免费"
+      - "AI PPT神器"
+      - "PPT排版"
+      - "PPT灵感"
+    expand_per_seed: 5
+
+# 抓取数量上限(后续接入小红书抓取时生效)
+scrape:
+  keywords_per_track: 15    # 每轨取热度 top 15 关键词
+  samples_per_keyword: 20   # 每个关键词抓 20 条爆款
+  competitor_accounts: 8     # 对标账号数

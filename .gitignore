@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 日志
+*.log
+
+# 生成产物（体积大，跑 execute.py / scrape_xhs.py 重生成）
+data/images/
+data/ppt_templates/**/cover.png
+
+# 小红书登录态（含 Cookie，严禁入库）
+data/xhs_state.json

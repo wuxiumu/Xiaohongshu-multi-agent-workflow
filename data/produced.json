@@ -1,0 +1,516 @@
+{
+  "produced_at": "2026-09-11T04:46:39+08:00",
+  "posts": [
+    {
+      "title": "AI作图翻车现场,第3个绝了😂",
+      "body": "谁懂啊,昨晚用AI画了20张图,18张翻车😭六根手指、人脸像摔过的硬盘、说好的赛博朋克出来个城乡结合部…先别笑,我把错题本整理好了,照抄就能避坑👇\n\n1️⃣ 手指狂魔附体\n翻车图:精致小姐姐,一伸手六根手指🤡\n修正:提示词里明写 perfect hands, five fingers,负面词加 extra fingers, deformed hands。别嫌啰嗦,AI真需要你把话说明白!\n\n2️⃣ 脸崩得像信号不好\n翻车图:五官全挤在左半张脸,眼神空洞像断电\n修正:CFG从默认7降到4.5-6,采样步数拉到28以上。权重太高AI会用力过猛,脸就是这么糊的。\n\n3️⃣ 主角凭空消失\n翻车图:想画「穿汉服的猫」,出来一排汉服模特,猫没了😹\n修正:主体词放句首+加权重,比如 (cat in hanfu:1.3)。AI习惯抓最显眼的词,顺序就是地位!\n\n4️⃣ 背景抢戏,主体变路人\n翻车图:要「咖啡店窗边的狗」,背景精细到看清咖啡豆,狗糊成一坨\n修正:加 background blur, bokeh,负面词写 busy background。细节预算有限,得花在主角身上!\n\n改完重跑一遍:手指正常、脸有神、猫稳稳C位,出图成功率从10%拉到90%+🎉同一个模型,参数对了像换了个AI,翻车图和成品放一起,亲妈都认不出是同一天画的。\n\n5组避坑提示词+参数对照表已打包,评论区扣「避坑」自取,先收藏防丢,下期教你们一键出电影感大片✨",
+      "tags": [
+        "AI绘画",
+        "AI作图",
+        "AI教程",
+        "提示词教程",
+        "AI绘画避坑"
+      ],
+      "steps": [
+        {
+          "desc": "避坑手指翻车:提示词加perfect hands, five fingers,负面词加extra fingers, deformed hands",
+          "screenshot_prompt": "小红书实拍截图风格,Stable Diffusion生图界面截图,左侧预览区是一张六根手指的手部特写翻车图并画了红圈,右侧提示词输入框显示「perfect hands, five fingers」,下方Negative Prompt负面词框显示「extra fingers, deformed hands」,红色箭头指向输入框,界面为暗色软件面板"
+        },
+        {
+          "desc": "修脸崩:CFG从7降到4.5-6,采样步数拉到28以上",
+          "screenshot_prompt": "小红书实拍截图风格,生图软件右侧参数设置面板截图,黄色高亮圈出CFG Scale滑块显示4.5和Sampling Steps输入框显示28,面板上方并排放两张人脸图,左边五官扭曲眼神空洞标注红色叉,右边自然清晰标注绿色勾,实拍屏幕带轻微反光质感"
+        },
+        {
+          "desc": "主体消失:主体词放句首并加权重,如(cat in hanfu:1.3)",
+          "screenshot_prompt": "小红书实拍截图风格,提示词输入框大特写截图,句首的「(cat in hanfu:1.3)」用黄色荧光笔高亮,输入框下方左边是一张只有汉服模特没有猫的翻车图配红色箭头写「猫呢?」,右边是一只猫稳稳站C位穿汉服的成品图,小红书贴纸风"
+        },
+        {
+          "desc": "背景抢戏:加background blur, bokeh,负面词加busy background",
+          "screenshot_prompt": "小红书实拍截图风格,手机拍摄电脑屏幕的照片,屏幕上是一张咖啡店窗边狗狗清晰的出图,背景奶油般虚化带光斑,屏幕角落浮着提示词小窗显示「background blur, bokeh」,照片有真实桌面和一角咖啡杯入镜,生活感实拍"
+        }
+      ],
+      "image_prompts": [
+        "小红书爆款封面首图,明亮高饱和风格,醒目粗黑大字标题「AI作图翻车现场」居中偏上,下方小一号黄色荧光笔字「第3个绝了😂」,画面左右分栏对比:左边一张六根手指的崩坏AI人像图盖红色「翻车」印章贴纸,右边一张精致完美的AI人像成品图贴绿色「救回来了」标签,中间一个手绘放大镜emoji贴纸,底部小字条「附避坑参数✅」,整体带白色描边贴纸感和手写箭头涂鸦,小红书封面实拍排版感"
+      ],
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_001/cover.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_001/step1.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_001/step2.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_001/step3.png"
+      ],
+      "topic_id": "tut_001",
+      "track": "tutorial",
+      "status": "ready"
+    },
+    {
+      "title": "1行咒语!白底图秒变ins风场景图",
+      "body": "做电商的姐妹谁懂啊😭 请模特租场景拍一组主图大几百,放白底图又干得像产品说明书,后台点击率惨到不敢看。\n\n其实根本不用拍!我用AI把白底图批量转成ins风场景图,一分钱没花,美工还问我哪找的摄影棚🤫\n\n手把手教程来了👇\n\n1️⃣ 上传白底图\n打开即梦(豆包、MJ都行),选图生图,把拍好的白底商品图拖进去。记住商品要居中、边缘干净,出来的效果直接翻倍。\n\n2️⃣ 输入这句咒语\n保持商品外观、logo和比例完全不变,置于奶油色大理石台面上,背景是虚化的ins风卧室,米白窗帘透进柔和自然光,旁边点缀绿植香薰,高级生活氛围感,商业电商主图质感\n直接复制就能用,只改场景词就行。\n\n3️⃣ 批量出图\n点生成等10秒,一次出4张,挑最自然的保存。想换风格只改两个词:卧室→厨房、大理石→原木桌面,一晚上轻松出50张。\n\n效果对比真的绝👊 左边白底图像官方说明书,右边直接是博主开箱的氛围大片,连光影反射都自动算好了,商品细节一点没变形。\n\n同一个链接换了主图,点击率肉眼可见变高,ROI直接拉回来了💰\n\n场景感提示词公式+10个风格关键词放评论区,直接抄作业,主页有完整实操视频,手慢无!",
+      "tags": [
+        "AI教程",
+        "电商干货",
+        "白底图改造",
+        "AI绘图",
+        "提示词咒语"
+      ],
+      "steps": [
+        {
+          "desc": "打开即梦AI(豆包/MJ也可以),选择图生图功能,上传拍好的白底商品图",
+          "screenshot_prompt": "手机屏幕实拍截图,即梦AI APP首页界面,顶部图生图功能入口被红圈标注,下方是刚上传的一张白底护肤品瓶图,按钮清晰,小红书教程截图风格,竖屏"
+        },
+        {
+          "desc": "在输入框粘贴场景咒语提示词,点击发送生成",
+          "screenshot_prompt": "手机对话框截图,输入框内显示一段中文提示词文字保持商品不变置于奶油色大理石台面,右侧红色发送按钮,输入框上方有已上传的商品缩略图,部分文字用黄色荧光笔标注,小红书教程截图风格"
+        },
+        {
+          "desc": "等待10秒一次生成4张,挑选最自然的一张保存",
+          "screenshot_prompt": "AI生成结果页截图,2x2宫格排列的4张奶油色系场景商品图,每张都是同款产品在不同氛围卧室中,右上角有保存按钮,其中一张被红笔圈出并画了五角星,小红书教程标注风格"
+        },
+        {
+          "desc": "只改场景关键词批量换风格,一晚出图50张",
+          "screenshot_prompt": "手机备忘录APP界面截图,清单列着卧室厨房野餐海边书房等场景关键词,部分词已打勾划掉,屏幕下方隐约露出相册里多张不同场景的商品成图,小红书博主日常截图风格,竖屏"
+        }
+      ],
+      "image_prompts": [
+        "首图封面:左右分屏对比构图,左边是呆板廉价感的白底护肤品产品图,右边是同款产品摆在奶油色大理石台面、背景虚化ins风卧室的氛围感大片,中间一个醒目的白色箭头指向右侧,顶部明黄色粗体大字1行咒语白底图变ins风,右下角红色小标签写着点击率翻倍,小红书爆款封面风格,高饱和撞色,视觉冲击力强,竖版3:4"
+      ],
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_002/cover.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_002/step1.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_002/step2.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_002/step3.png"
+      ],
+      "topic_id": "tut_002",
+      "track": "tutorial",
+      "status": "ready"
+    },
+    {
+      "title": "外包报价2万,我用AI半天搞定",
+      "body": "上周老板把618全套电商物料的活儿丢给我,问外包公司,报价2万,工期7天😤\n\n我一咬牙决定自己用AI搞,第二天半天就全套交付。老板看完沉默了几秒,给我点了杯奶茶,说以后这种活都归我了……\n\n具体怎么做的,拆给你看👇\n\n1️⃣ 主图:产品实拍图直接丢进即梦,提示词套\"电商主图模板\":纯色渐变背景,产品居中,柔光棚拍质感,高级感构图。一次出4张挑最稳的,产品歪了、反光不对就用局部重绘修,顺手AI一键抠图换背景,一张5分钟。\n\n2️⃣ 详情页:先把产品资料喂给ChatGPT,让它按\"用户痛点—解决方案—信任状\"输出卖点文案,自己顺手改两处AI口癖。再开稿定设计套电商详情模板,文案替换进去,配色直接吸主图的色,一屏10分钟,连做3屏不重样。\n\n3️⃣ 海报:MJ出促销氛围底图,关键词:618大促,红金色系,礼盒彩带烟花元素,大量留白构图。出来后进可画加标题、价格角标和满减券小素材,小素材也全AI直出,一张都没外包。\n\n算笔账:外包报价20000,周期7天,改稿还要加钱。我自己:AI会员一个月150,半天出5张主图+3屏详情页+4张海报,零沟通成本,老板要改当场改完发他。\n\n省下的1万9千8,老板笑着给我发了笔奖金,不算多,但这份\"随时能顶上\"的底气,是AI给的😆\n\n主图/详情页/海报的出图教程我拆成3篇放主页合集了,评论区扣\"666\"领完整提示词包,照抄就能出图!",
+      "tags": [
+        "AI教程",
+        "电商设计",
+        "AI作图",
+        "降本增效",
+        "打工人搞钱"
+      ],
+      "steps": [
+        {
+          "desc": "产品实拍图直接丢进即梦,提示词套电商主图模板,一次生成4张挑最稳的,歪了就局部重绘,5分钟出一张能用的主图",
+          "screenshot_prompt": "手机实拍截图,即梦AI图生图界面,左侧上传区是一张白色精华瓶产品图,右侧画布整齐排列4张渐变蓝紫色背景的电商主图,下方提示词输入框显示\"电商产品主图,纯色渐变背景,柔光棚拍质感\",红色圆圈标注生成按钮,小红书笔记截图风格,界面元素清晰"
+        },
+        {
+          "desc": "ChatGPT按痛点—卖点—信任状结构写详情页文案,再开稿定设计套电商模板,吸主图配色,一屏10分钟连做3屏不重样",
+          "screenshot_prompt": "电脑屏幕实拍截图,左边ChatGPT对话窗口,输出列表标题为\"618详情页卖点文案:痛点—解决方案—信任状\",右边稿定设计编辑页面,一款咖啡产品详情页模板正在替换标题文字,右侧面板显示吸管工具吸取主图配色,界面带红色箭头标注,小红书实拍截图风格"
+        },
+        {
+          "desc": "MJ出红金色促销氛围底图,留白构图方便加字,进可画补标题、价格角标和满减券小素材,全套AI直出零外包",
+          "screenshot_prompt": "手机实拍截图,上半屏是Midjourney生成界面,4张618大促氛围海报底图并排展示,红金色系礼盒烟花背景带大量留白;下半屏是可画APP编辑页,同一张底图已加上\"限时5折\"大标题和红色价格角标,两屏上下对比构图,小红书实拍截图风格"
+        }
+      ],
+      "image_prompts": [
+        "小红书爆款封面,左右分屏对比构图:左半边灰暗色调,大字写着\"外包报价 2万\"\"工期7天\",配一个崩溃打工人抱头实拍小图;右半边明亮红金色调,电商主图、详情页截图、促销海报整齐铺开排成一摞,顶部黄底黑字冲击大标题\"AI半天搞定\",右下角贴纸风格数字\"省¥19800\"带红色圆圈描边,实拍拼贴贴纸风格,高饱和度,信息量拉满,3:4竖版"
+      ],
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_003/cover.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_003/step1.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_003/step3.png"
+      ],
+      "topic_id": "tut_003",
+      "track": "tutorial",
+      "status": "ready"
+    },
+    {
+      "title": "不会画画！我用AI作图接到首单",
+      "body": "上次还在评论区哭穷，这次来还愿了！零基础小白，靠AI作图接到人生第一单，200块到手😭\n\n我一个连PS都打不开的人，上个月开始摸索AI作图，没想到这么快就变现了。把接单全流程分享给你们👇\n\n1️⃣需求沟通别慌\n客户是开咖啡店的，想要新品尝鲜海报。我先甩过去4个问题：尺寸多大？风格偏好？有参考图吗？要突出什么卖点？客户秒回还会夸你专业，其实你只是在套模板😂\n\n2️⃣AI出图三步走\n把客户需求翻译成提示词，我用即梦直接中文写：ins风咖啡海报，拿铁特写，暖色调，上方留白放文字。一次生成4张，挑2张最好的微调。记住一定生成3:4竖版，客户发小红书正好能用\n\n3️⃣交付前必做2件事\n一是用醒图把文字加上（产品名+价格），AI可不会帮你打字；二是导出前放大检查细节，手指、杯子把手最容易翻车，发给客户前自己先看三遍！\n\n对比一下：第一张是我随手生成没修饰的，第二张是加完排版交付的。客户当场夸“很懂行”，还把开店的朋友介绍给我了🥹\n\n这单从沟通到交付只花40分钟，时薪300+，比我上班高太多…关键是这活儿根本不需要会画画！\n\n接单沟通话术模板+客户需求拆解教程在评论区，主页置顶有零基础工具清单，收藏慢慢看❤️",
+      "tags": [
+        "AI作图",
+        "副业分享",
+        "零基础学AI",
+        "AI接单变现",
+        "普通人搞钱"
+      ],
+      "steps": [
+        {
+          "desc": "客户需求沟通：列出尺寸、风格、参考图、卖点4个问题发给客户，微信聊天界面",
+          "screenshot_prompt": "手机微信聊天界面截图，对话框里显示一条列举客户需求的消息：海报尺寸、风格偏好、参考图、核心卖点四个问题，绿色气泡，小红书实拍截图风格，屏幕略带使用痕迹"
+        },
+        {
+          "desc": "在即梦输入中文提示词生成海报，一次出4张挑选",
+          "screenshot_prompt": "即梦AI生成界面截图，顶部输入框显示中文提示词“ins风咖啡海报 拿铁特写 暖色调 留白”，下方网格排列4张拿铁海报生成结果，界面带生成按钮和比例选择3:4高亮，小红书实拍风格"
+        },
+        {
+          "desc": "用醒图给海报添加产品名和价格文字排版",
+          "screenshot_prompt": "醒图App编辑界面截图，中间是咖啡海报预览图，上方已添加艺术字“生椰拿铁 12.9元/杯”，右侧显示文字工具栏和字体列表，底部一排编辑功能图标，小红书手机实拍截图风格"
+        },
+        {
+          "desc": "交付前放大检查细节，确认手指和杯子把手无穿帮",
+          "screenshot_prompt": "手机相册图片放大查看界面，屏幕显示咖啡海报局部放大特写，聚焦在握杯的手部区域，顶部显示缩放比例条，整体是用户检查图片细节的真实截图感，小红书实拍风格"
+        }
+      ],
+      "image_prompts": [
+        "首图：左右分屏对比封面，左边是无排版素图咖啡海报（画面平淡略暗），右边是精致交付版海报（暖色调拿铁+精美文字排版），中间画一个醒目的红色箭头从左指向右，顶部大字标题“零基础AI作图 首单200到手”，配小字“不会画画也能接单”，小红书爆款封面风格，高饱和暖色调，字体加粗醒目，画面留白干净"
+      ],
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_004/cover.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_004/step1.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_004/step2.png",
+        "/Users/mac/Documents/trae_projects/_plan/data/images/tut_004/step3.png"
+      ],
+      "topic_id": "tut_004",
+      "track": "tutorial",
+      "status": "ready"
+    },
+    {
+      "title": "skill总翻车?3行代码修稳输出",
+      "body": "上周连着三天,我的「周报生成」skill集体翻车😅\nprompt里明明写了三遍「只输出JSON」,它非要先来一句「好的,以下是整理结果:」,再糊一层代码块。下游.loads直接炸,翻日志看到`JSONDecodeError: Expecting value: line 1 column 1`,一天挂17次,血压拉满。\n\n最离谱的一次,模型输出一半还开始道歉:「抱歉刚才格式错了」😂 道歉完接着错。\n\n🧠 设计思路转变\n一开始我疯狂堆prompt:「必须」「只能」「禁止解释」全用上,老实了两天又开始飘。后来想通了:LLM本质是概率采样,不可能100%守规矩。所以原则改成——prompt管方向,代码管底线,别指望模型自律,要让程序兜底。\n\n🔧 核心就3行容错\n1️⃣ 输入校验:调用前check参数非空,空字符串别白白烧token\n2️⃣ 输出清洗:正则剥掉包裹,再抠出{}主体\n3️⃣ 失败重试:解析失败时,把报错信息当hint喂回去重跑\n第三行是灵魂:不是干巴巴重跑,而是告诉模型「你上次错在哪」,它纠错特别精准。\n\n📊 修复前后对比\n修复前:50次调用成功37次,13次JSONDecodeError,成功率74%\n修复后:50次全部成功,其中9次靠重试救回,成功率100%✅\n平均延迟只多0.8s,完全能接受。\n\n💡 复用建议\n· 一切要求结构化输出的skill都能套:JSON、表格、固定字段抽取\n· retry上限设2次,到顶就放弃,别死循环烧钱\n· 报错回喂这个技巧,比「再说一遍」式重试成功率高一大截\n\n完整skill_script直接抄👇\n你们的skill翻过什么离谱的车?评论区蹲个乐子,扣1领整理好的模板📩",
+      "skill_script": "import , re\n\ndef run_skill(skill_fn, prompt, max_retry=2):\n    # 1️⃣ 输入校验:空值直接拦,不浪费token\n    if not prompt or not isinstance(prompt, str):\n        return {'ok': False, 'error': 'invalid_input'}\n\n    resp = skill_fn(prompt)\n    for i in range(max_retry + 1):\n        # 2️⃣ 输出清洗:剥掉包裹,抠出JSON主体\n        raw = re.sub(r'()?|', '', resp).strip()\n        m = re.search(r'\\{.*\\}|\\[.*\\]', raw, re.S)\n        try:\n            data = .loads(m.group() if m else raw)\n            return {'ok': True, 'data': data, 'retry': i}  # ✅ 成功\n        except Exception as e:\n            # 3️⃣ 失败重试:报错回喂,带hint精准纠错\n            resp = skill_fn(prompt + '\\n\\n你上次输出报错:' + str(e) +\n                            '\\n只输出JSON,不要解释,不要代码块')\n    return {'ok': False, 'error': 'retry_exhausted'}  # 到顶放弃,防死循环",
+      "demo_input": "prompt:「整理本周工作:修复登录bug、写了3篇文档;下周要联调支付」(skill_fn = 周报生成skill)",
+      "demo_output": "第1次解析失败→自动带报错重试→ {'ok': True, 'retry': 1, 'data': {'done': ['修复登录bug', '写3篇文档'], 'todo': ['联调支付']}}",
+      "tags": [
+        "AI agent",
+        "skill开发",
+        "AI编程",
+        "debug日常",
+        "效率工具"
+      ],
+      "image_prompts": [
+        "首图:左右分屏before/after对比图,左侧红色系JSONDecodeError报错弹窗+成功率74%,右侧绿色系✅100%成功+3行高亮代码,中间粗白箭头,顶部大字标题「3行代码修稳skill」,小红书封面3:4竖版,高饱和撞色,扁平简洁风",
+        "第二图:skill容错流程图,输入校验→调用→输出清洗→失败重试,带环形回路箭头,每步配小icon,标注retry上限2次,奶油底色手账贴纸风"
+      ],
+      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_001/skill_script.txt",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_001/cover.png"
+      ],
+      "topic_id": "ski_001",
+      "track": "skill",
+      "status": "ready"
+    },
+    {
+      "title": "我把周报做成了skill：2小时变3分钟",
+      "body": "每周五下午，你是不是也在痛苦憋周报？😭\n翻聊天记录、扒git log、对着空白文档发呆…2小时就这么没了。\n\n我受够了。花一个周末写了个周报skill，现在每周五17:33，飞书自动推送成稿，全程0人工介入⏰\n实测：原来120分钟 → 现在3分钟（还包括我检查的时间）\n\n🧠 设计思路\n很多人把AI周报当聊天工具，每周还得手动喂素材，那不还是打杂吗？\n我的思路是做成无人值守流水线：\n① 定时触发：周五17:30自动唤醒\n② 素材抓取：自动拉飞书多维表格（工作日志）+ 本周git提交记录\n③ LLM归纳：按固定四段模板成稿，机器人直接推进飞书群\n关键在\"自动\"这两个字——人不碰，它自己转。\n\n⚙️ 核心代码逻辑（完整脚本见图2）\n· 定时：schedule库，比crontab对小白友好得多\n· 抓取：requests调飞书开放API，app_id+secret换token，按视图拉记录\n· 成稿：system prompt写死【本周完成/进行中/下周计划/风险求助】四段模板，还加了铁律——\"只允许使用提供的素材，禁止编造\"，防幻觉这点太重要了！\n· 推送：webhook一发，收工\n\n📮 调用演示\nInput：周五17:30自动触发，读「工作日志」表本周12条记录\nOutput：3分钟后收到周报，本周完成带数据、进行中带进度、下周计划+风险提醒，直接转发领导，被夸\"越来越有结构了\"😌\n\n♻️ 复用建议\n· 表格名、webhook地址、prompt模板换成你自己的\n· 想做日报/月报？只改一行cron表达式\n· 不用飞书的，推送段换smtplib发邮件，五行代码的事\n· 团队用就加个配置dict，一人一份参数\n\n代码和prompt都在脚本里，复制改参数就能跑。\n想要「防幻觉版周报prompt」的扣1，过50我出保姆级教程📖",
+      "skill_script": "# weekly_report_skill.py —— 周报自动成稿skill（复制改参数即用）\nimport requests, schedule, time\n\nAPP_ID, APP_SECRET = \"你的飞书app_id\", \"你的飞书app_secret\"\nTABLE_ID, VIEW_ID = \"多维表格id\", \"视图id\"\nWEBHOOK = \"https://open.feishu.cn/open-apis/bot/v2/hook/你的机器人token\"\n\ndef get_materials():\n    # 换token → 拉多维表格本周记录\n    token = requests.post(\n        \"https://open.feishu.cn/open-apis/auth/v3/tenant_access_token/internal\",\n        ={\"app_id\": APP_ID, \"app_secret\": APP_SECRET}\n    ).()[\"tenant_access_token\"]\n    url = f\"https://open.feishu.cn/open-apis/bitable/v1/apps/{TABLE_ID}/records/search\"\n    rows = requests.post(url, headers={\"Authorization\": f\"Bearer {token}\"},\n                         ={\"view_id\": VIEW_ID}).()\n    return str(rows[\"data\"][\"items\"])  # 本周工作日志原文\n\ndef gen_report(materials):\n    prompt = f\"\"\"你是周报助手。严格按模板输出：【本周完成】【进行中】【下周计划】【风险与求助】。\n铁律：只允许使用素材中的信息，禁止编造任何数据和事实。\n素材：{materials}\"\"\"\n    return call_llm(prompt)  # 替换为你的LLM API调用\n\ndef push_feishu(text):\n    requests.post(WEBHOOK, ={\"msg_type\": \"text\", \"content\": {\"text\": text}})\n\ndef weekly_job():\n    push_feishu(gen_report(get_materials()))\n\nschedule.every().friday.at(\"17:30\").do(weekly_job)\nwhile True:\n    schedule.run_pending()\n    time.sleep(60)",
+      "demo_input": "周五17:30定时触发；输入=飞书多维表格「工作日志」本周12条记录（如：完成登录模块联调、修复3个线上bug、支付对账开发至60%…）",
+      "demo_output": "3分钟后飞书收到：【本周完成】上线登录模块，修复线上bug×3，接口平均响应降至120ms【进行中】支付对账开发60%【下周计划】对账联调、周报skill开源【风险】测试环境不稳定，需运维支持",
+      "tags": [
+        "AI Agent开发",
+        "周报自动化",
+        "效率神器",
+        "Python实战",
+        "打工人自救指南"
+      ],
+      "image_prompts": [
+        "首图prompt：小红书封面before-after对比图。左侧：焦虑打工人周五14:00抓头发盯着空白文档，配字'写周报×2小时'；右侧：同一人翘脚喝茶看手机，配字'周报已自动送达×3分钟'；中间红色大箭头+加粗大标题'周报2小时→3分钟'；红底白字，扁平插画风，高对比度"
+      ],
+      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_002/skill_script.txt",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_002/cover.png"
+      ],
+      "topic_id": "ski_002",
+      "track": "skill",
+      "status": "ready"
+    },
+    {
+      "title": "喂了3年聊天记录，AI比我还像我",
+      "body": "昨天闺蜜发来我俩聊天截图：\"这话你说的？\"\n——不是，是我家AI仿的。连我只打单个\"哈\"、从不发\"哈哈哈\"的怪癖都学会了😅\n\n起因是想做个替我回消息的分身agent。prompt调了几十版，写出来还是一股客服味：首先、其次、祝你生活愉快……\n\n后来想通了：与其教它\"怎么像我\"，不如直接喂它\"我是谁\"。\n\n【设计思路】\n把三年微信记录导出来，清洗后挑了500条最能代表我的对话：吐槽的、安慰人的、敷衍领导的，按场景分类。\n关键不是全塞进去，而是做成few-shot样本对——什么情境→我当时怎么回的。\n样本要覆盖不同情绪浓度：日常闲聊、深夜emo、吵架和好，不然分身只会一种画风。\n再配一组硬规则锁底线：禁套话、短句优先、感叹号限量。\n打包成一个skill，agent每次开口前先对齐我的语感。\n\n【代码关键逻辑】\n核心三步：\n① load_samples()清洗记录：只留文本、过滤语音红包、按长度截断\n② few_shot里放精选样本，拼进system prompt\n③ temperature拉到0.85，留点\"人味\"随机\n真正干活的是build_messages()，把样本+用户输入组装成消息列表，一行代码接入任意agent。\n\n【调用效果】\n输入：\"朋友刚失业，帮我安慰下\"\n以前：\"失业是人生常态，建议积极调整心态……\"\n现在：\"裁员又不是你的错，先睡两天。缺钱吱一声，别硬扛。\"\n闺蜜看完：精神状态和我一模一样😂 跑了两周，群里没一个朋友看出不是我。\n\n【复用建议】\n· 微信/QQ都能导记录，格式最好处理\n· 样本贵精不贵多，300-600条够用\n· 每月补喂新记录，人会变，分身也要跟着长\n· 敏感内容本地处理，别裸奔上传云端\n\n最戳我的不是省事，是某天深夜它回了句\"早点睡，明天的事明天愁\"——恍惚了一秒，那是我常说的话。\n\n想要清洗脚本+完整prompt模板的，评论区扣\"分身\"，人多就出保姆级教程❤️",
+      "skill_script": "# my_twin_skill.py —— 数字分身Skill（可改造成JSON配置直接挂agent）\nimport \n\nSKILL = {\n  \"name\": \"my_tone_twin\",\n  \"desc\": \"用3年聊天记录复刻个人语气\",\n  \"system_prompt\": \"\"\"你是我的数字分身，替我回消息。铁律：\n1. 开口前先看下方【语气样本】，模仿句长、标点、口头禅\n2. 一条回复≤3句，短句优先，别长篇解释\n3. 禁词：首先/其次/总之/希望对你有帮助/加油\n4. 感叹号最多1个，\"哈\"最多3连（我从不打哈哈哈）\n5. 关心人要给具体动作，不说空话套话\"\"\",\n  \"few_shot\": [\n    {\"q\": \"我好累\", \"a\": \"累就别硬撑，先躺着，饭我点好了\"},\n    {\"q\": \"面试挂了\", \"a\": \"挂就挂了，那公司配不上你，下一个更猛\"},\n    {\"q\": \"在吗\", \"a\": \"在，说事儿\"}\n  ],\n  \"temperature\": 0.85,\n  \"max_tokens\": 120\n}\n\ndef load_samples(path=\"chat.\", n=500):\n    \"\"\"清洗导出的聊天记录：只留文本，掐头去尾\"\"\"\n    with open(path, encoding=\"utf-8\") as f:\n        recs = .load(f)\n    ok = [r for r in recs if r[\"type\"] == \"text\"\n          and 3 <= len(r[\"content\"]) <= 60]\n    return ok[-n:]  # 取最近n条，人最近的状态最像本人\n\ndef build_messages(user_input):\n    samples = \"\\n\".join(f\"对方：{s['q']}\\n我：{s['a']}\" for s in SKILL[\"few_shot\"])\n    sys = SKILL[\"system_prompt\"] + \"\\n\\n【语气样本】\\n\" + samples\n    return [{\"role\": \"system\", \"content\": sys},\n            {\"role\": \"user\", \"content\": user_input}]\n\n# 一行接入任意agent：\n# client.chat.completions.create(model=\"...\", messages=build_messages(\"朋友失业了怎么安慰\"))",
+      "demo_input": "朋友刚被裁了，帮我发条消息安慰她",
+      "demo_output": "被裁不是你的问题，是行业的问题。先睡两天，别急着改简历。缺钱吱一声，别硬扛。",
+      "tags": [
+        "AI数字分身",
+        "AIAgent",
+        "提示词工程",
+        "skill开发",
+        "AI玩法分享"
+      ],
+      "image_prompts": [
+        "首图prompt：小红书封面3:4竖版，before-after左右对比，左侧灰底展示AI客服味长篇公式化回复（'首先/其次/祝你生活愉快'划红线），右侧高饱和橙底展示短句毒舌分身回复，中间粗箭头，顶部粗黑体大字'喂了3年聊天记录'，底部小字'AI比我还像我'，撞色高对比，emoji贴纸点缀，小红书爆款封面风格",
+        "内页图prompt：skill配置流程图，横向5步箭头：微信记录导出→清洗筛选500条→做成few-shot样本→注入system prompt→数字分身上线，扁平插画风，橙白配色，步骤圆圈编号，小红书内页排版风格"
+      ],
+      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_003/skill_script.txt",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_003/cover.png"
+      ],
+      "topic_id": "ski_003",
+      "track": "skill",
+      "status": "ready"
+    },
+    {
+      "title": "20行代码,写出你的第一个Skill",
+      "body": "刷到过很多skill模板吧?动辄几百行,复制下来报错连篇,删也不是改也不会,最后收藏夹吃灰😭\n\n其实skill根本不需要那么重。今天现场手敲一个20行的最小可用版,每行带注释,照抄就能跑通你人生第一次skill调用👇\n\n🧠 设计思路:拆到不能再拆\n一个skill本质就三件事:\n1️⃣ 我是谁——name+description,给agent看的身份证\n2️⃣ 何时出手——trigger触发词,命中才响应\n3️⃣ 干什么活——一个run函数,输入进、结果出\n\n市面上的复杂模板,90%是工程化装饰。新手阶段全砍掉,骨架反而一眼看懂🦴\n\n💻 代码就3个模块\n① SKILL字典:名字、描述、触发词,3个字段搞定身份\n② run():真正干活的函数,这里演示文本统计,换成翻译、摘要逻辑都行\n③ dispatch():调度前台——query里含触发词就调run,不含就返回None,让位给下一个skill\n\n零外部依赖,不用装任何库,新建skill.py粘贴保存即可✅\n\n🎬 首次调用演示\n输入:统计:今天也要开心呀 Keep going\n输出:字数:18|词数:3|去空格:16\npython skill.py一敲,结果蹦出来的那一刻,成就感直接拉满🥹\n\n♻️ 复用建议\n▪️ 只改run()里的逻辑=秒变新skill(汇率换算、口算校验都能做)\n▪️ 往trigger里加词,命中面更广\n▪️ 多个skill的dispatch串成列表轮询,就是最简agent雏形\n▪️ 玩熟后把触发判断换成LLM意图识别,直接进化成真agent🚀\n\n先让最小版本跑起来,比收藏100个模板都有用。\n\n评论区扣「skill」,完整可运行文件发你~关注我,从小白到agent开发者一起打怪升级🛠️",
+      "skill_script": "# ===== 最小可用Skill:文本速算器(约20行) =====\n# 1️⃣ skill身份卡:告诉agent我是谁、管什么\nSKILL = {\n    'name': 'text_stats',               # 唯一名字\n    'description': '统计文本字数与词数',  # 给agent看的说明书\n    'trigger': ['统计', '字数'],         # 触发词,命中才干活\n}\n\n# 2️⃣ 核心逻辑:真正干活,只管输入→输出\ndef run(text: str) -> str:\n    chars = len(text)                   # 总字符数\n    words = len(text.split())           # 按空格分词\n    pure = len(text.replace(' ', ''))   # 去空格后的字数\n    return f'字数:{chars}|词数:{words}|去空格:{pure}'\n\n# 3️⃣ 调度器:agent的前台,决定接不接这单\ndef dispatch(query: str):\n    if not any(k in query for k in SKILL['trigger']):\n        return None                     # 不归我管,放行给下一个skill\n    text = query.split(':', 1)[-1]      # 取冒号后面的正文\n    return run(text)\n\n# 4️⃣ 首次调用:存成skill.py,直接 python skill.py\nif __name__ == '__main__':\n    print(dispatch('统计:今天也要开心呀 Keep going'))",
+      "demo_input": "统计:今天也要开心呀 Keep going",
+      "demo_output": "字数:18|词数:3|去空格:16",
+      "tags": [
+        "AIAgent开发",
+        "编程入门",
+        "Skill教程",
+        "Python实战",
+        "程序员日常"
+      ],
+      "image_prompts": [
+        "小红书封面,before-after对比构图:左边灰色便签写「500行模板→复制报错→劝退劝退」配崩溃表情贴纸,右边亮色便签写「20行最小Skill→一次跑通✅」,中间手绘大箭头,顶部醒目标题大字「20行写出你的第一个Skill」,奶油白底色+圆角贴纸风+高对比文字,小红书爆款封面风格",
+        "内页流程图:三个圆角卡片从左到右用箭头连接——「身份卡SKILL(name/描述/触发词)」→「干活的run函数(输入→输出)」→「调度器dispatch(命中触发词?接单:放行)」,手绘白板风,配小图标🪪⚙️🎯,清晰简洁,适合小白理解的极简示意图"
+      ],
+      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_004/skill_script.txt",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_004/cover.png"
+      ],
+      "topic_id": "ski_004",
+      "track": "skill",
+      "status": "ready"
+    },
+    {
+      "title": "写了个吵架skill，AI怼人没输过",
+      "body": "客服第8次说“亲，建议您协商解决”的时候，我破防了😅\n砍价被糊弄、退货被踢皮球、甲方半夜改需求还问“能不能体谅一下”——\n吵吧，嘴笨；不吵，憋屈。\n行，那就让AI替我吵。\n\n🧠 设计思路：吵架的本质不是输出狠话，是控制谈判节奏。\n所以我给agent装了三个情绪参数：\n🔥 aggression攻击性（决定措辞烈度）\n🧊 patience耐心值（低于3自动触发掀桌预警）\n🎯 goal核心目标（要钱/要道歉/要拖延时间）\n再配一个4档话术库：礼貌施压→证据反杀→规则压制→掀桌预警，每轮根据对方配合度自动升降档，避免一上来就掀桌把自己后路堵死。\n实测最猛的是“规则引用”模块——70%的架是靠引用条款赢的，根本不靠嗓门。\n\n💻 核心代码就三块：\n1️⃣ emotion_params字典：控制语气和攻击上限\n2️⃣ escalation_ladder冲突阶梯：rule-based自动选档\n3️⃣ system_prompt注入铁律：永远不先骂人，但每句话带钩子，结尾必是封闭式问题（把选择权甩回对面）\n\n📞 实测：拿甲方那句经典“五彩斑斓的黑”开刀，AI直接拆需求+给3个可落地替代方案+锁死deadline，反手把“预算不加”的锅甩了回去。甲方回了个“行吧”，第一次觉得“行吧”这么好听🥹 输出放最后一张图，自己品。\n\n♻️ 复用建议：\n· 话术库换成你行业的黑话，电商/租房/职场全通用\n· aggression别拉满，7是性价比之王，10容易把天聊死\n· 一定写好exit_condition，吵崩了得知道怎么体面收场\n\n完整prompt和话术库打包好了，评论区扣“开吵”发你🤝\n下期更新：把skill接进客服电话语音（有点危险但很爽，想看的扣1）",
+      "skill_script": "ARGUE_SKILL = {\n  \"name\": \"fight_back_pro\",\n  \"trigger\": \"用户需要谈判/退货/砍价/怼甲方\",\n  \"emotion_params\": {\n    \"aggression\": 7,       # 攻击性 0-10，决定措辞烈度\n    \"patience\": 5,         # 耐心值，<3 触发掀桌预警\n    \"goal\": \"拿回全款\",     # 谈判核心目标\n    \"bottom_line\": \"退款70%+运费\"\n  },\n  \"escalation_ladder\": [\n    {\"level\": 1, \"style\": \"礼貌施压\", \"weapon\": \"重复诉求+时间成本提醒\"},\n    {\"level\": 2, \"style\": \"证据反杀\", \"weapon\": \"订单号/聊天记录/承诺截图\"},\n    {\"level\": 3, \"style\": \"规则压制\", \"weapon\": \"消保法条款/平台规则编号\"},\n    {\"level\": 4, \"style\": \"掀桌预警\", \"weapon\": \"投诉渠道明示+最后期限\"}\n  ],\n  \"system_prompt\": \"\"\"你是专业谈判agent，铁律：\n1. 永远不先骂人，但每句话必须带钩子（反问/条款/损失提醒）\n2. 对方敷衍→level+1，对方让步→level-1，动态升降档\n3. 每轮回复≤3句，最后一句必须是封闭式问题\n4. aggression≤5全程敬语；≥8允许冷嘲但不进行人身攻击\n5. 引用规则时必须给出具体编号，不许编造\n6. 达成goal立即停战确认，不恋战\"\"\",\n  \"exit_condition\": \"对方给出可验证承诺 或 连续3轮无进展→建议用户止损\"\n}",
+      "demo_input": "甲方：需求很简单，logo大一点但要低调，颜色要五彩斑斓的黑，明早要，预算不加。",
+      "demo_output": "收到，先拆一下：“五彩斑斓的黑”物理上不可实现，咱别互相为难🎨 给您3个可落地选项：A深空灰渐变 / B哑光黑+微光晕 / C黑底彩描边，选一个今晚就能出。预算不加=工时不变=只能选项内调整，所以二选一：接受替代方案，或追加预算按原始幻想做。今晚6点前确认，否则明早谁也交不出来——您选哪个？",
+      "tags": [
+        "AI智能体",
+        "提示词工程",
+        "打工人嘴替",
+        "AI实操教程",
+        "agent开发"
+      ],
+      "image_prompts": [
+        "小红书封面，3:4竖版，左右对比图：左半边灰蓝色调，文字“我：被客服踢皮球第8次😭”，配一个瘫倒的卡通小人；右半边高饱和红橙色调，文字“AI：引用《消保法》第55条，反杀⚔️”，配一个戴墨镜的酷飒机器人卡通形象；中间大号VS标志，粗黑描边字体，贴纸风+高斯模糊背景，点击率拉满的封面构图",
+        "小红书封面备选，3:4竖版，手绘风流程图：从上到下四个色块阶梯依次标注“礼貌施压→证据反杀→规则压制→掀桌预警”，每级阶梯配一个火焰emoji，顶部大标题“吵架skill四档火力”，底部小字“aggression=7”，白底+橙色主色调，信息图风格清晰易读"
+      ],
+      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_005/skill_script.txt",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_005/cover.png"
+      ],
+      "topic_id": "ski_005",
+      "track": "skill",
+      "status": "ready"
+    },
+    {
+      "title": "Prompt熬一天,Skill十分钟搞定",
+      "body": "上周为了一个周报生成任务",
+      "换个输入,格式当场又崩,改到怀疑人生...\n\n今天同一任务重做": "20行skill定义+10行调用代码。同一批输入连跑10次",
+      "skill设计思路\n核心就一句": "别把规则塞prompt",
+      "把规则沉淀成结构。\n超长prompt的死穴": "规则全靠自然语言堆砌",
+      "description": "一句话锁死任务边界\n② input_schema:5个必填字段",
+      "steps": "提取要点→归类三模块→按模板填充→自检字数\n杀手锏是output_schema:强制固定JSON输出",
+      "调用实测\ninput": {
+        "主题": "AI产品周报",
+        "要点": [
+          "上线语音功能",
+          "修复3个bug",
+          "转化率+12%"
+        ],
+        "风格": "汇报体",
+        "字数": 300
+      },
+      "noutput": "标准周报秒出,三大模块,数据齐全,字数精准。\n对比组超长prompt呢?10次里3次漏数据、2次格式飘、1次还自己加戏写了段小作文...稳定性高下立判。\n\n♻️ 复用建议\n把高频任务全抽成skill:周报、竞品分析、改简历、会议纪要...一次定义,团队随便调,迭代只改版本号。\n记住:prompt是消耗品,skill才是资产💪\n\n你还在死磕哪个prompt?评论区丢出来,我帮你拆成skill👇",
+      "skill_script": "# weekly_report_skill.py | 20行定义+10行调用,复制即用\nSKILL = {\n  'name': 'weekly_report_generator',\n  'description': '将零散工作要点生成固定三模块周报',\n  'input_schema': {\n    'topic': 'str,周报主题',\n    'points': 'list[str],本期工作要点',\n    'range': 'str,统计时间范围',\n    'style': 'str,输出风格',\n    'word_limit': 'int,总字数上限'\n  },\n  'output_schema': {\n    '本周进展': 'list[str]',\n    '数据指标': 'list[str]',\n    '风险与计划': 'list[str]'\n  },\n  'steps': [\n    '1.从points中提取可量化数据',\n    '2.要点归类到三大模块',\n    '3.按style与word_limit生成',\n    '4.自检:字段齐全、不超字数、不加戏'\n  ]\n}\n\ndef build_prompt(skill, user_input):\n    # 关键:结构拼装,而非自然语言堆砌\n    desc = skill['description']\n    schema = skill['output_schema']\n    steps = skill['steps']\n    return (\n        f'严格按skill执行:{desc}\\n'\n        f'输入:{user_input}\\n'\n        f'输出必须为JSON,字段名不可增删:{schema}\\n'\n        f'执行顺序:{steps}'\n    )\n\nresult = llm(build_prompt(SKILL, my_input))\n# 同批输入连跑10次,格式0漂移✨",
+      "demo_input": {
+        "topic": "AI产品周报",
+        "points": [
+          "上线语音输入功能",
+          "修复3个支付bug",
+          "付费转化率+12%"
+        ],
+        "range": "11.18-11.24",
+        "style": "汇报体",
+        "word_limit": 300
+      },
+      "demo_output": {
+        "本周进展": [
+          "上线语音输入功能,覆盖iOS/安卓双端",
+          "修复支付链路3个bug,成功率回升至99.6%"
+        ],
+        "数据指标": [
+          "付费转化率环比+12%"
+        ],
+        "风险与计划": [
+          "下周灰度放量至50%用户,重点监控投诉率"
+        ]
+      },
+      "tags": [
+        "AIAgent开发",
+        "Prompt工程",
+        "AI效率工具",
+        "程序员日常",
+        "AI工作流"
+      ],
+      "image_prompts": [
+        "小红书封面,before-after左右分屏对比图:左侧红色系标注'超长prompt翻车',配乱码文字与崩溃警告贴纸;右侧绿色系标注'Skill 20行搞定',配整齐输出与绿色对勾;中间大箭头从左指向右;顶部大字标题'prompt熬一天 skill十分钟搞定';扁平插画风,高饱和撞色,大字报排版,3:4竖版"
+      ],
+      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_006/skill_script.txt",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_006/cover.png"
+      ],
+      "topic_id": "ski_006",
+      "track": "skill",
+      "status": "ready"
+    },
+    {
+      "title": "agent半夜自己跑任务？一招锁死",
+      "body": "凌晨3点，我被自家agent整破防了😭\n\n测试环境它一顿狂飙：调了37次支付接口、往群里连发200条消息，最离谱的是还想执行一条 DROP TABLE……我人在被窝，它在\"加班\"。\n\n复盘完发现根因就仨：工具全放开、没有白名单、执行没边界。agent不是不听话，是你没给它立规矩。\n\n于是我把\"权限闸门\"写成了一个skill，思路三句话👇\n1️⃣ 默认拒绝：不在白名单的工具，一律拦下\n2️⃣ 时段+风险分级：高危操作只允许在工作时段跑，夜间直接静默\n3️⃣ 沙箱兜底：所有命令进隔离环境执行，30s超时强杀，rm -rf、DROP TABLE这类参数黑名单秒拦\n\n核心逻辑超简单：agent每次想调工具，先过一道guard()闸门——查白名单→查时段→高危弹人工确认→参数过黑名单，四关全过才放行进沙箱。全程写审计日志，谁调了什么、几点调的，一查一个准🔍\n\n实测演示：\n输入：\"把orders表删了重新导入\"\n输出：\"🚫已拦截：命中危险参数DROP TABLE，已推送审批卡片给值班同学\"\n以前它先斩后奏，现在是它申请、我签字，安全感直接拉满✅\n\n复用建议：\n· 白名单放配置文件，改权限不动代码\n· 支付/删库/群发全标high风险，必须人工点头\n· 夜间模式收窄时段，只留只读工具\n这套闸门20来行代码，LangChain、Coze、自研框架都能套，纯逻辑零依赖💡\n\n你的agent半夜干过什么离谱事？评论区蹲一个最惨翻车现场👇先收藏，别等翻车才想起上锁🔒",
+      "skill_script": "# agent_firewall.py —— 20行给agent上锁\nfrom datetime import datetime\nimport logging\n\nlog = logging.getLogger(\"audit\")\n\nTOOL_WHITELIST = {\n    \"search_web\":  {\"risk\": \"safe\"},\n    \"read_file\":   {\"risk\": \"safe\"},\n    \"write_file\":  {\"risk\": \"mid\",  \"confirm\": True},\n    \"exec_sql\":    {\"risk\": \"high\", \"confirm\": True, \"hours\": (9, 20)},\n    \"send_email\":  {\"risk\": \"high\", \"confirm\": True, \"hours\": (9, 20)},\n}\nBLACKLIST = [\"rm -rf\", \"DROP TABLE\", \"sudo \", \"curl http\"]\n\nclass ToolBlocked(Exception):\n    pass\n\ndef guard(tool: str, args: dict):\n    rule = TOOL_WHITELIST.get(tool)\n    if not rule:                                    # ① 白名单默认拒绝\n        raise ToolBlocked(f\"工具[{tool}]未授权\")\n    if \"hours\" in rule:                             # ② 时段闸门\n        s, e = rule[\"hours\"]\n        if not (s <= datetime.now().hour < e):\n            raise ToolBlocked(\"非允许时段，已静默拦截\")\n    if rule[\"risk\"] != \"safe\" and not ask_human(tool, args):  # ③ 人工确认\n        raise ToolBlocked(\"高危操作被驳回\")\n    if any(p in str(args) for p in BLACKLIST):      # ④ 参数黑名单\n        raise ToolBlocked(\"命中危险参数\")\n\ndef call_tool(tool: str, args: dict):\n    guard(tool, args)                               # 每次调用必过闸\n    log.warning(f\"[AUDIT] {tool} args={args}\")      # ⑤ 审计留痕\n    return sandbox_run(tool, args, timeout=30)      # ⑥ 沙箱+超时",
+      "demo_input": "指令：\"把orders表清空后重新导入最新数据\"（agent准备调用 exec_sql: DROP TABLE orders）",
+      "demo_output": "🚫 ToolBlocked: 命中危险参数「DROP TABLE」| 已拦截并推送审批卡片给值班同学 | 审计日志已写入 audit.log",
+      "tags": [
+        "AIAgent",
+        "Agent开发",
+        "AI安全",
+        "LLM应用",
+        "程序员日常"
+      ],
+      "image_prompts": [
+        "首图prompt:小红书封面，左右before-after对比图，左侧深夜场景手机屏幕疯狂弹出红色警报消息'agent凌晨3点乱调37次工具'，右侧绿色盾牌+挂锁图标配文字'白名单已锁死'，扁平插画风，高饱和蓝橙撞色，大字标题'一招锁死'，排版干净吸睛",
+        "内页prompt:横向流程图，agent调用请求→guard闸门→白名单/时段/人工确认/黑名单四道关卡→沙箱执行，每步配中文标注和锁图标，扁平科技风插画，小清新配色",
+        "内页prompt:代码卡片风格，深色IDE背景展示Python权限白名单配置代码带语法高亮，四周点缀小锁和盾牌emoji贴纸，小红书知识博主晒码风格"
+      ],
+      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_007/skill_script.txt",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_007/cover.png"
+      ],
+      "topic_id": "ski_007",
+      "track": "skill",
+      "status": "ready"
+    },
+    {
+      "title": "skill套skill!链式调用太香了",
+      "body": "每天手动跑“采集→写稿→配图”三步,复制粘贴到怀疑人生😭 上周我把整条流水线塞进skill,现在一个关键词进去,成稿+封面直接吐出来👇\n\n🔑核心思路:每个环节做成独立子skill,再写一个主skill当总调度。文件结构长这样:\n\npipeline/\n├─ skill.(主skill声明)\n├─ main_skill.py(编排逻辑)\n└─ sub_skills/\n   ├─ collector/(采集)\n   ├─ writer/(成稿)\n   └─ designer/(配图)\n\n子skill各带一份skill.(功能描述+入参schema),主skill只干一件事:按顺序调,把上一步的output塞进下一步的input。参数全走dict传递,谁产数据谁定格式,解耦得干干净净✨\n\n💻核心逻辑三步(伪代码):\n① collect = run_skill(\"collector\", {keyword})\n② draft = run_skill(\"writer\", {topic, materials: collect.output})\n③ cover = run_skill(\"designer\", {title: draft.output.title})\n\n亮点在②③:采集到的items直接当writer的materials,writer完全不用关心数据从哪来;cover直接复用draft产出的title去画图,标题和封面永远对得上,告别图文不符😅\n\n🧪实测:输入“通勤穿搭”,collector抓回5条热门素材,writer按小红书口吻产出600字成稿+3个备选标题,designer用同款标题生成奶油风封面。全程零人工,约90秒跑完。\n\n♻️复用建议:\n①子skill的入参schema写清楚,主skill就能随便换零件\n②先跑通单向链路,再加分支判断(比如素材不够自动补抓)\n③run_skill替换成你平台的实际调用API即可,思路完全通用\n\n链式玩法最爽的点:每个skill能单独测试、单独复用,拼起来又是一台全自动流水线🤖\n\n觉得有用先收藏🌟评论区扣“skill”,下篇拆参数校验和失败重试怎么写!",
+      "skill_script": "# main_skill.py —— 主skill:采集→成稿→配图 链式编排\nimport \nfrom runtime import run_skill  # 平台提供的skill调用入口\n\ndef pipeline(keyword: str, num: int = 5) -> dict:\n    # 1️⃣ 调子skill:素材采集\n    collect = run_skill(\"collector\", {\n        \"keyword\": keyword,\n        \"limit\": num\n    })\n    materials = collect[\"output\"][\"items\"]\n\n    # 2️⃣ 调子skill:成稿,采集结果直接作参数传入\n    draft = run_skill(\"writer\", {\n        \"topic\": keyword,\n        \"materials\": materials,\n        \"style\": \"小红书口吻\",\n        \"word_count\": 600\n    })\n\n    # 3️⃣ 调子skill:配图,复用成稿标题保证图文一致\n    cover = run_skill(\"designer\", {\n        \"title\": draft[\"output\"][\"title\"],\n        \"palette\": \"奶油风\"\n    })\n\n    return {\n        \"draft\": draft[\"output\"],\n        \"cover_url\": cover[\"output\"][\"url\"]\n    }\n\nif __name__ == \"__main__\":\n    print(.dumps(pipeline(\"通勤穿搭\"), ensure_ascii=False, indent=2))",
+      "demo_input": "{\"keyword\": \"通勤穿搭\", \"num\": 5}",
+      "demo_output": "{\"draft\": {\"title\": \"打工人通勤穿搭|5套不重样模板\", \"body\": \"600字成稿+3个备选标题...\"}, \"cover_url\": \"cdn.example.com/cover_01.png\", \"耗时\": \"约90秒,全程零人工\"}",
+      "tags": [
+        "AIAgent",
+        "skill玩法",
+        "AI自动化",
+        "效率工具",
+        "AI编程"
+      ],
+      "image_prompts": [
+        "首图:左右before-after对比,左侧'手动三步'乱线+复制粘贴疲惫表情,右侧'一键链式调用'清爽流程图(关键词→采集→成稿→配图→成品三件套),奶油色背景+大字标题'skill套skill',小红书封面风格,3:4竖版",
+        "内页:深色IDE代码截图风,展示pipeline目录树+run_skill三步调用高亮,荧光绿注释箭头标注参数流向"
+      ],
+      "skill_script_path": "/Users/mac/Documents/trae_projects/_plan/data/images/ski_008/skill_script.txt",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/images/ski_008/cover.png"
+      ],
+      "topic_id": "ski_008",
+      "track": "skill",
+      "status": "ready"
+    },
+    {
+      "title": "答辩前3天，AI把我PPT救回来了",
+      "body": "答辩前3天，导师看完我的PPT只说了一句：「这是课程作业吧？」😅\n\n当场心态崩了。论文改到第五版，PPT还是开学做的那个，排版乱、全是论文摘抄，评委看一眼就想皱眉。\n\n死马当活马医，我把论文全文丢给AI，让它按「答辩评委想听什么」重新搭骨架。半小时出来的框架，比我熬两夜排的版本清楚十倍🔥\n\n之后3天反复实测打磨，有了这套模板👇\n\n它解决什么问题：\n✅ 不知道答辩PPT该放哪几页，一不小心堆到40页\n✅ 内容全是论文摘抄，评委听得想睡觉\n✅ 临时抱佛脚，根本没时间从零学排版\n\n适合谁：\n🎓 3天内要答辩、PPT还没做完的本科生/研究生\n🎓 论文写完了但PPT无从下手的\n🎓 开题、中期、毕业答辩都能直接套用\n\n模板亮点：\n📌 11页标准结构，每页文案写好，直接照抄进PPT\n📌 每页配演讲备注，上台照着说，全程不冷场\n📌 数据页怎么呈现、被追问怎么接，都有话术\n\n我自己按这个结构重做，答辩一次过，评委还夸逻辑清楚✨\n\n评论区扣「救我」，同款答辩模板+配色方案直接发你，主页置顶有完整AI生成教程💌",
+      "tags": [
+        "毕业答辩",
+        "答辩PPT",
+        "AI做PPT",
+        "论文答辩",
+        "研究生日常"
+      ],
+      "md_filename": "thesis-defense-template.md",
+      "cover_prompt": "干净暖色调书桌场景，笔记本电脑屏幕上显示简洁PPT大纲与「3天倒计时」进度条，旁边摊开的论文、咖啡杯和手写便签，画面中央大字标题「答辩前3天 AI救回我的PPT」，下方小字「11页全稿直接抄」，暖橙色+奶油白配色，文字感突出，3:4竖版，不出现真实人脸",
+      "markdown": "# 三天极限答辩PPT · 全稿直接照抄模板\n\n> **适用场景**：本科/硕士毕业答辩临期冲刺，论文已成稿但PPT没着落，3天内要交出完整答辩稿。\n> **建议页数**：11页",
+      "md_file": "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_002/thesis-defense-template.md",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_002/cover.png"
+      ],
+      "topic_id": "ppt_002",
+      "track": "ppt",
+      "status": "ready"
+    },
+    {
+      "title": "答辩被批后，我才改对这3页PPT",
+      "body": "答辩被批到当场想找地缝，复盘整整一周，我把挨批最狠的框架页、创新点页、结论页全改对了，二次答辩老师直接说“这版清楚多了”📖\n\n先看翻车现场📉\n🔸框架页：一张流程图箭头乱飞，老师灵魂拷问“这图想说明什么”\n🔸创新点页：堆满“首次提出、填补空白”，被反问一句就垮\n🔸结论页：整段贴摘要，和前文零呼应\n\n后来才懂，挨批的不是PPT丑，是逻辑没闭环❗\n\n这套模板就照翻车教训写的👇\n✅ 3大挨批重灾区，每页附修改前后对照文案，照抄就能改\n✅ 全10页完整页面文案+演讲备注+排版建议，复制进PPT直接用\n✅ 附答辩前48小时避坑自查清单，逐条打勾不出错\n\n适合谁🎓\n答辩前突击改PPT的本硕生、开题中期总被挑逻辑毛病的同学、组会不知道怎么讲创新点的研究人\n\n三个核心改法先剧透💡\n框架页：三层以内、箭头只往下\n创新点页：两个就够、每点可回溯到证据页\n结论页：逐条回应研究问题，不塞新概念\n\n改好的3页对照模板+避坑清单在评论区，回复「避坑」打包，主页附AI批量改版教程，答辩周一起冲🚀",
+      "tags": [
+        "毕业答辩",
+        "答辩PPT",
+        "论文答辩",
+        "PPT模板",
+        "研究生日常"
+      ],
+      "md_filename": "thesis-defense-ppt-template.md",
+      "cover_prompt": "奶油暖色调桌面俯拍，摊开的论文打印稿、荧光笔与便利贴，中间一张PPT打印页被红笔圈出三处修改痕迹，顶部大字标题「答辩被批后，我才改对这3页PPT」，角落便利贴手写「避坑」二字，柔和自然光，干净文档氛围，3:4竖版，不出现真实人脸",
+      "markdown": "# 答辩避坑PPT完整文案模板｜3大挨批页修改对照版\n\n> 适用场景：本科/硕士毕业答辩、开题与中期汇报，专治框架图乱、创新点虚、结论散三大高频挨批点\n> 建议页数：10页（第4、6、7页为挨批重灾区，附修改前后对照）\n> 使用方法：复制每页【页面文案】下的内容到PPT文本框，将XX替换为你的课题关键词即可\n\n---\n\n## 第1页 · 封面 · 答辩开场页\n\n**页面文案**\n\n主标题：基于XX的XX优化研究——以XX为研究对象\n副标题：20XX届本科（硕士）学位论文答辩\n信息行：答辩人：XXX｜指导教师：XXX 教授｜专业：XXXX｜答辩日期：20XX年X月X日\n\n**演讲备注**\n\n开场30秒别念标题，直接说“各位老师好，我汇报的题目是XX，将从研究框架、结果与创新点、结论三部分展开，预计X分钟”。先报结构，给评委吃定心丸。\n\n**排版建议**\n\n白底加校徽主色，标题居中占上三分之一，信息一行排完，留白多于文字。\n\n---\n\n## 第2页 · 目录 · 汇报框架\n\n**页面文案**\n\n本次汇报共四部分：\n\n1. 研究背景与问题提出——为什么做这个题\n2. 研究框架与方法——怎么做的\n3. 结果与创新点——做出了什么\n4. 结论与不足——做到了什么程度\n\n一句话主线：本文围绕XX问题，采用XX方法，回答“XX在XX条件下是否有效”这一核心问题。\n\n**演讲备注**\n\n目录页20秒带过，关键是把四部分串成一句逻辑主线，让评委先看到骨架再听细节，后面被提问也跑不出这条线。\n\n---\n\n## 第3页 · 背景 · 研究背景与问题提出\n\n**页面文案**\n\n现实背景：XX领域近三年XX指标年均增长X%（数据来源：XX统计年鉴），但现有方案存在A、B、C三类不足。\n\n研究缺口：现有研究多聚焦XX层面，对XX情境下的XX机制关注不足。\n\n研究问题：在XX条件下，XX方法能否有效提升XX——本文全文围绕这一个问题展开。\n\n**演讲备注**\n\n背景只讲两件事：问题真实存在、现有研究没解决。最后必须落到一个明确的研究问题上，这是评委判断你会不会做研究的第一道关。\n\n**排版建议**\n\n左栏一张趋势图，右栏三段文字，研究问题用色块加粗突出。\n\n---\n\n## 第4页 · 方法 · 研究框架页（挨批重灾区①）\n\n**页面文案**\n\n翻车版对照：只放一张彩色流程图，箭头乱飞，评委反问“这张图到底想说明什么”。\n\n修改后文案：本文研究框架分三层——\n\n1. 问题层：界定XX问题的三个维度（维度A、维度B、维度C）\n2. 方法层：与三个维度一一对应，分别采用XX方法、XX模型、XX实验\n3. 验证层：用XX数据集（共N条样本）验证有效性，输出评价指标XX\n\n- 自检一：每层输入来自上一层输出，方法不悬空\n- 自检二：箭头只从上往下，不存在回头线\n\n**演讲备注**\n\n先说“框架分三层”，再逐层指图各讲一句。改图口诀是三层以内、箭头只从上往下，评委一眼看懂，就不会纠缠图本身。\n\n**排版建议**\n\n框架图删掉全部装饰色，只用主色加灰，每层一条色块纵向排列。\n\n---\n\n## 第5页 · 数据 · 研究结果页\n\n**页面文案**\n\n- 实验设置：基线为XX方法，数据集XX共N条，按X:X:X划分，评价指标为XX与XX\n- 核心结果：本文方法在XX指标上达到X.X，较最优基线提升X.X%；在XX场景下优势最大，提升",
+      "md_file": "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_003/thesis-defense-ppt-template.md",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_003/cover.png"
+      ],
+      "topic_id": "ppt_003",
+      "track": "ppt",
+      "status": "ready"
+    },
+    {
+      "title": "答辩PPT别瞎做！10页万能结构直接套",
+      "body": "答辩前夜还在一页页抠PPT？别抠了，答辩PPT根本不需要创意，需要的是结构🔥\n\n这套10页万能结构，是我答辩拿了优、还帮3个学弟学妹顺利过审后总结的：封面1+背景2+方法3+结果3+总结1，页码即公式，照顺序填内容就能上台。\n\n它解决什么问题：不知道每页该放什么、怕老师问“你这页想说明啥”、内容写太多8分钟根本讲不完。按这个结构走，一页只讲一个信息点，评委听得清清楚楚。\n\n适合谁：本科/硕士毕业答辩、开题、结题汇报，所有被汇报PPT折磨的人。\n\n结构亮点：\n✅ 每页文案能直接照抄，不是空话套话\n✅ 每页附演讲备注，教你这页嘴上怎么讲\n✅ 连主动讲不足的加分页都安排好了\n\n目录页和致谢页也帮你补齐，凑满12页不用再想。\n\n整套10页模板按页码标好放评论区，扣「结构」整套带走，主页同步更新填空教程📝",
+      "tags": [
+        "毕业答辩",
+        "答辩PPT",
+        "PPT模板",
+        "论文答辩",
+        "研究生日常"
+      ],
+      "md_filename": "thesis-defense-template.md",
+      "cover_prompt": "干净的暖光书桌俯拍氛围，摊开的笔记本与打印好的PPT大纲纸，纸上突出“答辩PPT·10页万能结构”的主题文字感，旁边一杯咖啡和一支笔，米白底+橙色点缀，简洁排版，3:4竖版，不出现真实人脸",
+      "markdown": "# 答辩PPT万能结构模板（10页公式版）\n\n> 适用场景：本科/硕士毕业答辩、开题答辩、结题汇报\n> 建议页数：核心10页＝封面1+背景2+方法3+结果3+总结1，另附目录、致谢2页，合计12页\n> 使用方法：把每页【页面文案】下的内容复制进PPT文本框，替换【】内为你的课题信息，再照【演讲备注】练口播即可上台\n\n---\n\n## 第1页 · 封面 · 开场定调\n\n**页面文案**\n\n论文题目：《【你的论文标题】》\n答辩人：【姓名】｜学号：【学号】\n指导教师：【导师姓名】\n【学院名称】·【专业名称】｜【答辩日期】\n\n**演讲备注**\n\n上台先站定再开口：各位老师好，我是【姓名】，今天汇报的题目是《……》，下面开始我的答辩。报题目时放慢语速，让老师看清标题。\n\n**排版建议**：白底加校徽，标题居中占上半屏，信息不超过三行。\n\n---\n\n## 第2页 · 目录 · 汇报框架\n\n**页面文案**\n\n本次汇报共五个部分：\n1. 研究背景与意义——为什么做这个题\n2. 研究现状综述——别人做到了哪一步\n3. 研究方法与设计——我具体怎么做\n4. 结果与分析——我做出了什么\n5. 结论与展望——价值与不足\n\n**演讲备注**\n\n一句话带过即可：我的汇报分五个部分，重点在方法与结果，请各位老师批评指正。全程15秒内，不要逐条念。\n\n**排版建议**：左侧序号01-05，右侧对应标题，五行以内。\n\n---\n\n## 第3页 · 背景 · 选题背景与意义\n\n**页面文案**\n\n现实痛点：据【机构/文献】统计，【领域】中XX问题的发生率已达XX%，传统处理方式难以为继。\n研究缺口：现有方案在【具体环节】仍有局限，集中表现为效率低、成本高或精度不足。\n核心问题：本研究聚焦【具体问题】，尝试回答——【一句话研究问题】。\n\n**演讲备注**\n\n按“痛点—缺口—价值”三句话讲清选题逻辑，每句不超过10秒。最后那句核心研究问题是全篇答辩的锚点，要放慢加重。\n\n**排版建议**：三段纵排，核心问题单独加粗放大。\n\n---\n\n## 第4页 · 背景 · 研究现状综述\n\n**页面文案**\n\n国内研究：以【学者A】为代表的团队提出【方法/观点】，解决了【某问题】。\n国外研究：【学者B】等在【年份】构建【理论/模型】，将【某指标】提升至【水平】。\n小结：已有成果集中于【方向A】与【方向B】，但在【某环节】仍属空白——这正是本文的切入点。\n\n**演讲备注**\n\n不要念文献，只讲脉络：谁做了什么、做到什么程度、还差什么。结尾一句“这正是本文的切入点”加重语气，自然过渡到方法部分。\n\n**排版建议**：国内外各一块，小结句放底部色块突出。\n\n---\n\n## 第5页 · 方法 · 技术路线\n\n**页面文案**\n\n本研究遵循“提出问题—构建方案—验证分析—归纳结论”的技术路线：\n1. 基于【第3页痛点】界定研究对象与范围；\n2. 设计【模型/框架/问卷/算法】，核心变量为【A】与【B】；\n3. 通过【实验/调研/仿真】完成数据验证；\n4. 归纳结论并提出对策建议。\n\n**演讲备注**\n\n这页配一张技术路线图，讲的时候沿图从左到右走一遍，不展开细节。强调四步环环相扣，为后面结果页做铺垫。\n\n**排版建议**：横向箭头流程图居中占版面，每步一行字。\n\n---\n\n## 第6页 · 方法 · 数据与研究方法\n\n**页面文案**\n\n数据来源：采用【问卷/实验/公开数据集】，有效样本【N】份，采集时间为【时间段】。\n研究方法包括——\n1. 【问卷调查法】：获取【什么信息】；\n2. 【回归分析/对照实验】：验证【变量间什么关系】；\n3. 【半结构化访谈】：解释【数据背后的原因】。\n\n**演讲备注**\n\n老师最关心数据可信度，重点讲清样本量、抽样方式和工具信效度。提前备好“为什么选这个方法而不是别的”的答问。\n\n**排版建议**：左栏数据信息、右栏方法列表，短句呈现。\n\n---\n\n## 第7页 · 方法 · 本文创新点\n\n**页面文案**\n\n与现有研究相比，本文创新有三：\n1. 视角创新：首次从【角度】切入【问题】，突破以往【旧角度】的局限；\n2. 方法创新：将【方法X】引入【领域Y】，弥补了传统方法【什么缺陷】；\n3. 应用创新：结论可直接服务于【场景】，具备落地条件。\n\n**演讲备注**\n\n创新点宁少勿多，最多三个且每个都要有前文支撑。用对比句式讲：以往研究如何，本文则如何，突出差异化。\n\n**排版建议**：三张并列卡片，每",
+      "md_file": "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_004/thesis-defense-template.md",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_004/cover.png"
+      ],
+      "topic_id": "ppt_004",
+      "track": "ppt",
+      "status": "ready"
+    },
+    {
+      "title": "年终述职PPT:3分钟讲赢全组",
+      "body": "上周组内述职,别人讲到第2页就被领导打断,我3分钟讲完,散会后还被追问'框架谁教你的'🙋‍♀️\n\n其实我只花了一个晚上——把全年工作丢给AI,先出大纲,再一键生成整份PPT,我要做的只是核对数字、调整语气。\n\n这套【3分钟年终述职模板】专治述职三大痛:\n😫 一年干了10件事,不知道挑哪3件讲\n😫 PPT做了30页,讲到一半被喊停\n😫 明明有成绩,讲出来却像流水账\n\n模板共11页,每页都替你想好了:\n✅ 封面+目录:30秒建立专业感,开场第一句都写好了\n✅ 成果盘点页:教你把一整年压缩成3个关键数字\n✅ 高光项目页:背景—行动—结果—沉淀,30秒讲透价值\n✅ 复盘页:说不足不踩雷,把减分题做成加分题\n✅ 规划+要资源页:目标、路径、所需支持,领导最想听的部分\n✅ 每页附演讲备注和排版建议,照着讲就行\n\n适合第一次述职的职场新人、想争取晋升调薪的骨干、明天就要上台的临时选手。把示例数字换成自己的,直接照抄上台💪\n\n述职模板+提示词已打包,评论区扣【述职】自取,复制即用;想全自动出片可看我主页AI工作流教程✨",
+      "tags": [
+        "年终述职",
+        "述职PPT",
+        "年终总结",
+        "AI办公",
+        "职场干货"
+      ],
+      "md_filename": "year-end-review-ppt.md",
+      "cover_prompt": "干净的暖色调木质桌面俯拍,桌面上散落几页打印文稿、一支钢笔和一杯咖啡,文稿上突出'年终述职'四个大字标题,强调文字感与文档氛围,柔和暖光,大量留白,3:4竖版构图,简洁整洁风格,不出现真实人脸",
+      "markdown": "# 3分钟年终述职PPT模板\n\n> 适用场景:年度述职、半年/季度汇报、晋升答辩初稿\n> 建议页数:11页",
+      "使用方法": "复制每页【页面文案】下的内容到 PPT 文本框",
+      "2025年度个人述职\n\n**页面文案**\n\n主标题": "2025年度个人述职\n副标题:用结果说话",
+      "为增长复盘\n落款": "汇报人(你的姓名)|岗位:(你的岗位)|日期:(汇报日期)\n\n**演讲备注**\n\n开场不念标题",
+      "直接说": "u201c感谢各位的时间",
+      "关键成果": "3个数字、1个高光项目\n2. 复盘反思:一个不足",
+      "明年规划": "一个主目标+三条路径\n\n**页面文案**\n\n**主目标:独立负责一个完整项目",
+      "今年我的工作全景\n\n**页面文案**\n\n全年参与(12)个项目,负责其中(5)个的核心执行;本职之外,主导完成(3)项流程优化。概括成一句话": "守住了基本盘",
+      "98%": "全年12个项目",
+      "30%": "重构周报与数据整理流程",
+      "4.8分": "跨部门评价均值从4.3提升到4.8",
+      "年内获客户书面表扬2次。\n\n**演讲备注**\n\n每个数字讲两句话": "一句是什么",
+      "一个高光项目讲透价值\n\n**页面文案**\n\n项目": "项目名称)|我的角色:(核心执行/负责人)\n\n- 背景:当时(具体问题",
+      "如": "对需求边界的确认不够坚决",
+      "行动": "我(关键动作",
+      "结果": "量化结果",
+      "沉淀": "方法整理成标准化文档",
+      "数字背后,三个可迁移的能力\n\n**页面文案**\n\n这一年最值钱的不是数字,是三个明年还能继续用的能力": "n\n1. 结构化拆解:面对模糊需求",
+      "跨部门推进": "从“等人配合”升级为“带着方案找人”",
+      "复盘习惯": "每个项目结束输出复盘文档",
+      "踩过的坑变成团队的地图\n\n**演讲备注**\n\n领导不只看结果,更在判断潜力。这页传递的信息是": "今年攒下的能力",
+      "复盘": "一个不足",
+      "一条对策\n\n**页面文案**\n\n做得不够好的一件事": "具体事件",
+      "导致中期返工一周)。\n根因在我": "归因到可改进的点",
+      "凭经验做了默认假设)。\n对策": "三季度起",
+      "所有项目启动前增加“需求确认单”签署环节,此后(3)个项目零返工。\n\n**演讲备注**\n\n讲不足的原则": "讲一个具体的、已经解决的业务问题",
+      "深耕专业": "完成(目标技能/认证)学习",
+      "扩大影响": "把今年的流程优化方法推广到(2)个兄弟团队\n3. 培养梯队:带(2)名新人独立上手",
+      "我需要的三个支持\n\n**页面文案**\n\n把明年目标做成,需要三样支持": "n\n1. 授权:申请主导(明年重点项目)的方案决策权",
+      "资源": "1名协作人力/一笔预算)",
+      "反馈机制": "希望每季度有30分钟一对一复盘",
+      "及时校准方向\n\n**演讲备注**\n\n要资源要具体": "多少、用在哪、换什么结果。敢于提需求反而显出规划感——领导评估的是投入产出比。\n\n**排版建议**\n\n三点竖排",
+      "每点前加关键词标签": "授权、资源、反馈。\n\n---\n\n## 第10页 · 总结 · 一页记住我这一年\n\n**页面文案**\n\n如果今天只记住三句话:\n\n- 我用98%的交付率和3个关键项目,证明了值得托付\n- 我把每一次踩坑,都变成了可复用的方法\n- 明年,我想把",
+      "md_file": "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_005/year-end-review-ppt.md",
+      "image_paths": [
+        "/Users/mac/Documents/trae_projects/_plan/data/ppt_templates/ppt_005/cover.png"
+      ],
+      "topic_id": "ppt_005",
+      "track": "ppt",
+      "status": "ready"
+    }
+  ]
+}
