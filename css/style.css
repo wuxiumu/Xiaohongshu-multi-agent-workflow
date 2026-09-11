@@ -10,7 +10,8 @@ a:hover{text-decoration:underline}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 
 /* Header */
-.header{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sticky-top{position:sticky;top:0;z-index:100}
+.header{background:#fff;border-bottom:1px solid var(--border);padding:16px 24px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .logo{font-size:20px;font-weight:700;display:flex;align-items:center;gap:8px}
 .logo .badge{background:var(--primary);color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;font-weight:600}
@@ -21,7 +22,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .stats .stat-ppt{color:#f59e0b}
 
 /* Tabs */
-.tabs{display:flex;gap:4px;background:#fff;border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:73px;z-index:99}
+.tabs{display:flex;gap:4px;background:#fff;border-bottom:1px solid var(--border);padding:0 24px}
 .tabs-inner{max-width:1400px;margin:0 auto;display:flex;gap:4px;width:100%}
 .tab{padding:14px 20px;font-size:14px;color:var(--muted);border-bottom:2px solid transparent;transition:all .15s}
 .tab:hover{color:var(--text)}
