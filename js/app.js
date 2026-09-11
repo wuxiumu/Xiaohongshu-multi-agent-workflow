@@ -5,12 +5,12 @@ let SCRIPTS = [];
 // ============ Tab 切换 ============
 document.querySelectorAll('.tab').forEach(t => {
   t.addEventListener('click', () => {
+    if (!t.dataset.view) return;
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
     document.querySelectorAll('.view').forEach(x => x.classList.remove('active'));
     t.classList.add('active');
     document.getElementById('view-' + t.dataset.view).classList.add('active');
     if (t.dataset.view === 'flow' && !document.getElementById('flow-content').innerHTML) loadFlow();
-    if (t.dataset.view === 'code' && !SCRIPTS.length) loadScripts();
   });
 });
 
@@ -192,7 +192,20 @@ async function loadFlow() {
   `;
 }
 
-// ============ 源代码 ============
+// ============ 源代码弹窗 ============
+let CURRENT_CODE = '';
+
+async function openCodeViewer() {
+  document.getElementById('code-overlay').classList.add('show');
+  if (!SCRIPTS.length) await loadScripts();
+}
+function closeCodeViewer() {
+  document.getElementById('code-overlay').classList.remove('show');
+}
+document.getElementById('code-overlay').addEventListener('click', e => {
+  if (e.target.id === 'code-overlay') closeCodeViewer();
+});
+
 async function loadScripts() {
   const r = await fetch(API + '?action=scripts');
   const d = await r.json();
@@ -213,7 +226,39 @@ async function loadScript(name, el) {
   const r = await fetch(API + `?action=script&name=${encodeURIComponent(name)}`);
   const d = await r.json();
   document.getElementById('code-file').textContent = name + ' · ' + (d.size || 0) + ' bytes';
-  document.getElementById('code-content').textContent = d.content || '';
+  const lines = (d.content || '').split('\n');
+  CURRENT_CODE = lines.join('\n');
+  document.getElementById('code-table').innerHTML = lines.map((l, i) =>
+    `<tr><td>${i + 1}</td><td>${esc(l)}</td></tr>`
+  ).join('');
+  document.getElementById('code-copy-btn').textContent = '复制代码';
+  document.getElementById('code-copy-btn').classList.remove('copied');
+}
+
+async function writeClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await Promise.race([
+        navigator.clipboard.writeText(text),
+        new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 800))
+      ]);
+      return;
+    } catch {}
+  }
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch {}
+  document.body.removeChild(ta);
+}
+
+async function copyCode() {
+  const btn = document.getElementById('code-copy-btn');
+  await writeClipboard(CURRENT_CODE);
+  btn.textContent = '✓ 已复制';
+  btn.classList.add('copied');
+  setTimeout(() => { btn.textContent = '复制代码'; btn.classList.remove('copied'); }, 2000);
 }
 
 // ============ Markdown 渲染(轻量,支持标题/段落/引用/嵌套列表/分割线/行内格式) ============

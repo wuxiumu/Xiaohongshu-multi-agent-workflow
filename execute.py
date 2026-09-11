@@ -69,7 +69,11 @@ def call_llm(providers, provider_name, model, prompt, max_tokens=4000, retries=2
                     payload["response_format"] = {"type": "json_object"}
                 r = requests.post(url, headers=headers, json=payload, timeout=timeout)
                 r.raise_for_status()
-                return r.json()["choices"][0]["message"]["content"]
+                content = r.json()["choices"][0]["message"]["content"]
+                # reasoning 模型偶发思考耗尽 token 导致 content 为空,主动重试
+                if not content or not content.strip():
+                    raise RuntimeError("empty content (reasoning token overflow)")
+                return content
         except Exception as e:
             last_err = e
             print(f"    [LLM retry {i+1}/{retries+1}] {e}")
@@ -261,7 +265,7 @@ def produce_ppt(providers, topic, topic_dir):
 
 直接输出 Markdown 正文,从一级标题开始,不要任何解释、不要用代码块包裹。"""
     md_content = call_llm(providers, "zhipu", "GLM-5.3-Flash",
-                          md_prompt, max_tokens=9000, json_mode=False)
+                          md_prompt, max_tokens=16000, json_mode=False)
     md_content = md_content.strip()
     # 剥掉可能的 ```markdown 包裹
     if md_content.startswith("```"):
@@ -270,9 +274,9 @@ def produce_ppt(providers, topic, topic_dir):
         if lines and lines[-1].strip().startswith("```"):
             lines = lines[:-1]
         md_content = "\n".join(lines).strip()
-    # 质量校验:必须有一级标题和足够的二级标题页
+    # 质量校验:必须有一级标题、≥8 个二级标题页、≥1200 字
     page_count = md_content.count("\n## ") + (1 if md_content.startswith("## ") else 0)
-    if not md_content.startswith("#") or page_count < 8:
+    if not md_content.startswith("#") or page_count < 8 or len(md_content) < 1200:
         raise ValueError(f"markdown 质量不合格(页数={page_count},长度={len(md_content)})")
 
     # 1. Markdown 模板落盘
