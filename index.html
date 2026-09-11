@@ -52,10 +52,19 @@
     "图片接口realpath白名单防目录穿越，密钥不入库",
     "系统只产出本地待发布物料，永不自动发帖"
   ],
-  "keywords": "小红书,多智能体,LLM,内容生产,选题,自动化,Playwright,Python,PHP,multi-agent"
+  "keywords": "小红书,多智能体,LLM,内容生产,选题,自动化,Playwright,Python,PHP,multi-agent",
+  "contactPoint": { "@type": "ContactPoint", "email": "contact@chiguashentan.com", "contactType": "customer support", "availableLanguage": ["zh-CN","en"] }
 }
 </script>
 <link rel="stylesheet" href="css/style.css">
+<!-- Microsoft Clarity 流量统计 -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "tbg57dxe7f");
+</script>
 </head>
 <body>
 
@@ -136,7 +145,17 @@
   <h3>看板与接口</h3>
   <p>根目录静态 index.html 搭配单文件只读 api.php（list/post/stats/flow/scripts/image/md_download），php -S 或任意 PHP 虚拟主机即可运行，无需数据库；图片接口以 realpath 白名单限制在 data 目录内，防止目录穿越；API Key 只存于项目外的 ~/.openclaw/openclaw.json，仓库零密钥。</p>
   <p>开源仓库：<a href="https://github.com/wuxiumu/Xiaohongshu-multi-agent-workflow">github.com/wuxiumu/Xiaohongshu-multi-agent-workflow</a>。开启 JavaScript 后可浏览 16 篇成品、详情与生产流程。</p>
+  <p>联系方式：<a href="mailto:contact@chiguashentan.com">contact@chiguashentan.com</a></p>
 </div>
 </noscript>
+
+<footer style="text-align:center;padding:20px 16px 28px;color:#6b7280;font-size:13px;line-height:1.7;background:#f9fafb;border-top:1px solid #e5e7eb">
+  <div>
+    <a href="https://github.com/wuxiumu/Xiaohongshu-multi-agent-workflow" target="_blank" rel="noopener" style="color:#ef4444;text-decoration:none">GitHub 开源仓库</a>
+    <span style="margin:0 8px;color:#d1d5db">·</span>
+    <a href="mailto:contact@chiguashentan.com" style="color:#ef4444;text-decoration:none">contact@chiguashentan.com</a>
+  </div>
+  <div style="margin-top:6px;color:#9ca3af">小红书多智能体内容生产流水线 · 系统不自动发帖，只产出本地待发布物料</div>
+</footer>
 </body>
 </html>
