@@ -21,6 +21,8 @@
 
 ---
 
+设计文档见 [docs/](docs/README.md)。
+
 ## 这是什么（30 秒概览）
 
 - **三智能体架构**：`收集智能体` 扩词+抓爆款 → `判断智能体` 评分排序+生成选题 → `执行智能体` 按三轨（AI 教程 / Skill 分享 / PPT 模板）生成笔记成品
@@ -62,7 +64,7 @@ Xiaohongshu-multi-agent-workflow/
 │   ├── judged.json       # 评分结果 + 选题队列
 │   ├── produced.json     # 成品笔记（16 篇样板）
 │   └── images/           # 生成的配图（gitignore，跑脚本生成）
-└── 00_总览.md / 01~03_*.md  # 三智能体设计文档
+└── docs/agents/            # 00~03 三智能体设计文档
 ```
 
 ## 快速开始
@@ -149,3 +151,20 @@ tutorial = 标题+分步教程+配图；skill = 标题+skill 代码+演示输入
 ## License
 
 MIT。本仓库不含任何第三方平台素材；生成内容请自行遵守平台规则与当地法律。
+
+---
+
+## 联系方式
+
+定制、演示或合作：
+
+- 邮箱：[wuxiumu@163.com](mailto:wuxiumu@163.com)
+- 微信：**qingbao199101**（添加请备注来意）
+
+### 赞助支持
+
+如果内容对你有帮助，欢迎自愿赞助。
+
+| 微信赞赏码 | 支付宝收款码 |
+|---|---|
+| ![微信赞赏码](https://chiguashentan-test.oss-cn-beijing.aliyuncs.com/wxprogram/zan/20261002185236_31_227.png) | ![支付宝收款码](https://chiguashentan-test.oss-cn-beijing.aliyuncs.com/wxprogram/zan/20261002185309_32_227.jpg) |
