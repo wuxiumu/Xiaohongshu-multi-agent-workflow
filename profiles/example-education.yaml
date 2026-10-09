@@ -1,0 +1,19 @@
+# 示例：少儿英语启蒙账号品类档 — 定制时整份替换
+niche: "少儿英语启蒙"
+audience: "2-6岁家长"
+seed_keywords:
+  - 英语启蒙
+  - 亲子英语
+  - 单词卡
+  - 自然拼读
+banned_topics:
+  - 海淘代购
+  - 站外私域导流
+tone: "温和、可执行、少黑话"
+executor_tracks:
+  - tutorial
+  - skill
+  - ppt
+brand:
+  name: "客户品牌名"
+  cta: "收藏本篇，按天数打卡"

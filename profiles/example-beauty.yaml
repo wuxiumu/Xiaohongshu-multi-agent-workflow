@@ -1,0 +1,13 @@
+niche: "美妆护肤"
+audience: "18-35 女性"
+seed_keywords:
+  - 护肤步骤
+  - 平价彩妆
+  - 敏感肌
+banned_topics:
+  - 医美夸大疗效
+  - 站外导流
+tone: "真实测评感、少术语"
+brand:
+  name: "客户品牌名"
+  cta: "收藏对比表，按肤质试"
