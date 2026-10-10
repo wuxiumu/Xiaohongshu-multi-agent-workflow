@@ -162,6 +162,28 @@ MIT。本仓库不含任何第三方平台素材；生成内容请自行遵守�
 
 加微信备注「品类定制」。
 
+## SEO / GEO 字段预留
+
+> 做成独立产品页 / 站群页时，模板与配置预留下列字段（先占位，落地页或导出 HTML 时填入）。
+
+| 字段 | 类型 | 用途 |
+|---|---|---|
+| `seo_title` | string | `<title>` / OG title |
+| `seo_description` | string | meta description |
+| `seo_keywords` | string[] | 可选关键词 |
+| `canonical_url` | url | 规范链接 |
+| `og_image` | url | 分享图 |
+| `robots` | string | 如 `index,follow` |
+| `json_ld_type` | string | 如 `SoftwareApplication` / `WebPage` / `FAQPage` |
+| `geo_region` | string | 地域页：省/州代码或名称 |
+| `geo_placename` | string | 城市/地标名（城市站、本地服务页） |
+| `geo_position` | string | 可选 lat,long |
+| `hreflang` | map | 多语言备用，如 `zh-CN` / `en` |
+| `site_name` | string | 品牌名（白标） |
+
+
+---
+
 ## 联系方式
 
 定制、演示或合作：
