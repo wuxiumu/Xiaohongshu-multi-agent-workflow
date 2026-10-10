@@ -4,9 +4,14 @@
 读 judged.json,按三轨分派子流程,产出可发布的小红书笔记:
 - tutorial:标题+步骤正文+界面截图风格配图
 - skill:标题+skill代码+演示输入输出+流程图配图
-- ppt:标题+正文+python-pptx生成PPT文件+页面缩略图
+- ppt:标题+正文+逐页 Markdown 文案模板+封面图
 
 输出 produced.json + data/images/{topic_id}/ + data/ppt_templates/{topic_id}/
+
+EXTENSION（定制流水线）：
+- 三轨成稿：produce_tutorial / produce_skill / produce_ppt。新轨在 main() 的 track_name 分支加分派。
+- 配图命令：gen_image()，可执行文件由 BL_BIN 指定（默认 bl）。失败只丢图，不丢正文。
+- provider 与 model 走 runtime_env.resolve_llm()，不要在各轨函数里再写死供应商。
 """
 import json
 import subprocess
@@ -16,13 +21,14 @@ from pathlib import Path
 
 import requests
 
-PLAN_DIR = Path(__file__).parent
-DATA_DIR = PLAN_DIR / "data"
+import runtime_env
+
+PLAN_DIR = runtime_env.ROOT
+DATA_DIR = runtime_env.data_dir()
 IMAGES_DIR = DATA_DIR / "images"
 PPT_DIR = DATA_DIR / "ppt_templates"
 JUDGED_PATH = DATA_DIR / "judged.json"
 PRODUCED_PATH = DATA_DIR / "produced.json"
-OPENCLAW_PATH = Path.home() / ".openclaw" / "openclaw.json"
 
 
 def rel(p):
@@ -31,11 +37,6 @@ def rel(p):
         return str(Path(p).resolve().relative_to(PLAN_DIR.resolve()))
     except (ValueError, OSError):
         return str(p)
-
-
-def load_providers():
-    oc = json.load(open(OPENCLAW_PATH, "r", encoding="utf-8"))
-    return oc.get("models", {}).get("providers", {})
 
 
 def call_llm(providers, provider_name, model, prompt, max_tokens=4000, retries=2,
@@ -107,7 +108,7 @@ def gen_image(prompt, out_dir, prefix, size="3:4"):
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     cmd = [
-        "bl", "image", "generate",
+        runtime_env.bl_bin(), "image", "generate",
         "--prompt", prompt,
         "--size", size,
         "--out-dir", str(out_dir),
@@ -129,7 +130,7 @@ def gen_image(prompt, out_dir, prefix, size="3:4"):
 
 # ============ 教程轨 ============
 
-def produce_tutorial(providers, topic, topic_dir):
+def produce_tutorial(providers, provider_name, model, topic, topic_dir):
     """教程轨:标题+步骤正文+配图"""
     title_hint = topic.get("title_hint", "")
     angle = topic.get("angle", "")
@@ -153,7 +154,7 @@ def produce_tutorial(providers, topic, topic_dir):
 }}
 
 要求:steps 3-5 个,image_prompts 1 个(首图)。只输出 JSON。"""
-    text = call_llm(providers, "zhipu", "GLM-5.3-Flash", prompt, max_tokens=6000)
+    text = call_llm(providers, provider_name, model, prompt, max_tokens=6000)
     data = parse_json_tolerant(text)
 
     # 生成配图
@@ -175,7 +176,7 @@ def produce_tutorial(providers, topic, topic_dir):
 
 # ============ Skill 轨 ============
 
-def produce_skill(providers, topic, topic_dir):
+def produce_skill(providers, provider_name, model, topic, topic_dir):
     """Skill 轨:标题+skill代码+演示+配图"""
     title_hint = topic.get("title_hint", "")
     angle = topic.get("angle", "")
@@ -197,7 +198,7 @@ def produce_skill(providers, topic, topic_dir):
 }}
 
 只输出 JSON。"""
-    text = call_llm(providers, "zhipu", "GLM-5.3-Flash", prompt, max_tokens=6000)
+    text = call_llm(providers, provider_name, model, prompt, max_tokens=6000)
     data = parse_json_tolerant(text)
 
     image_paths = []
@@ -218,7 +219,7 @@ def produce_skill(providers, topic, topic_dir):
 
 # ============ PPT 轨 ============
 
-def produce_ppt(providers, topic, topic_dir):
+def produce_ppt(providers, provider_name, model, topic, topic_dir):
     """PPT 轨(纯 Markdown 版):标题+正文+完整 Markdown 文案模板+封面图。
     不再生成 pptx,核心交付物是可直接复制使用的逐页成稿 Markdown。"""
     title_hint = topic.get("title_hint", "")
@@ -242,7 +243,7 @@ def produce_ppt(providers, topic, topic_dir):
 }}
 
 只输出 JSON。"""
-    meta_text = call_llm(providers, "zhipu", "GLM-5.3-Flash",
+    meta_text = call_llm(providers, provider_name, model,
                          meta_prompt, max_tokens=3000, json_mode=True)
     data = parse_json_tolerant(meta_text)
 
@@ -264,7 +265,7 @@ def produce_ppt(providers, topic, topic_dir):
 6. 内容要具体到该选题场景(例如答辩模板就写答辩该讲什么),不要泛泛而谈
 
 直接输出 Markdown 正文,从一级标题开始,不要任何解释、不要用代码块包裹。"""
-    md_content = call_llm(providers, "zhipu", "GLM-5.3-Flash",
+    md_content = call_llm(providers, provider_name, model,
                           md_prompt, max_tokens=16000, json_mode=False)
     md_content = md_content.strip()
     # 剥掉可能的 ```markdown 包裹
@@ -308,7 +309,8 @@ def main():
         sys.exit(1)
 
     judged = json.load(open(JUDGED_PATH, "r", encoding="utf-8"))
-    providers = load_providers()
+    providers, provider_name, model = runtime_env.require_llm()
+    print(f"[INFO] LLM: {provider_name} / {model}")
 
     # resume:读已有 produced.json,ready 的跳过
     produced = {
@@ -348,13 +350,13 @@ def main():
 
             try:
                 if track_name == "tutorial":
-                    data = produce_tutorial(providers, topic, topic_dir)
+                    data = produce_tutorial(providers, provider_name, model, topic, topic_dir)
                 elif track_name == "skill":
-                    data = produce_skill(providers, topic, topic_dir)
+                    data = produce_skill(providers, provider_name, model, topic, topic_dir)
                 elif track_name == "ppt":
                     ppt_topic_dir = PPT_DIR / tid
                     ppt_topic_dir.mkdir(parents=True, exist_ok=True)
-                    data = produce_ppt(providers, topic, ppt_topic_dir)
+                    data = produce_ppt(providers, provider_name, model, topic, ppt_topic_dir)
                 else:
                     data = None
 

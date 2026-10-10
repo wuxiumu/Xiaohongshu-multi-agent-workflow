@@ -3,36 +3,29 @@
 01 收集智能体 · 关键词扩展脚本
 读取 collect_config.yaml,用 LLM 把三轨种子词扩成长尾词,
 输出到 data/collected.json 的 keywords 字段(不抓小红书,纯 LLM 扩展)。
+
+EXTENSION（定制流水线）：
+- 种子词与每词扩展条数：collect_config.yaml 的 tracks.<轨>.seeds / expand_per_seed。
+- 长尾词提示词：expand_seed()。
+- 不要改 collected.json 的 tracks.<轨>.keywords / samples 形状，02 与抓取脚本依赖它。
 """
 import json
-import os
-import sys
 import time
-from pathlib import Path
 
 import yaml
 import requests
 
-# 路径
-PLAN_DIR = Path(__file__).parent
-DATA_DIR = PLAN_DIR / "data"
-DATA_DIR.mkdir(exist_ok=True)
-CONFIG_PATH = PLAN_DIR / "collect_config.yaml"
-OPENCLAW_PATH = Path.home() / ".openclaw" / "openclaw.json"
+import runtime_env
+
+# 路径。DATA_DIR / 配置文件可被 .env 覆盖，见 .env.example。
+DATA_DIR = runtime_env.data_dir()
+CONFIG_PATH = runtime_env.collect_config_path()
 OUTPUT_PATH = DATA_DIR / "collected.json"
 
 
 def load_config():
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
-
-
-def load_openclaw():
-    """从 ~/.openclaw/openclaw.json 读取 provider 配置"""
-    with open(OPENCLAW_PATH, "r", encoding="utf-8") as f:
-        oc = json.load(f)
-    providers = oc.get("models", {}).get("providers", {})
-    return providers
 
 
 def call_llm(providers, provider_name, model, prompt):
@@ -109,9 +102,8 @@ def expand_seed(providers, provider_name, model, seed, n):
 
 def main():
     cfg = load_config()
-    providers = load_openclaw()
-    provider_name = cfg["llm"]["provider"]
-    model = cfg["llm"]["model"]
+    # 密钥来自 .env 或 openclaw.json；provider/model 名仍可被 collect_config.yaml 提供。
+    providers, provider_name, model = runtime_env.require_llm()
     print(f"[INFO] LLM: {provider_name} / {model}")
 
     result = {

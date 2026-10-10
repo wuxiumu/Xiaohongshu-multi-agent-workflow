@@ -24,7 +24,59 @@ function resolve_project_path(string $rel): ?string {
 }
 
 define('PLAN_DIR', __DIR__);
-define('DATA_DIR', PLAN_DIR . '/data');
+
+// 与 runtime_env.py 同一约定：空值忽略，进程环境变量优先于 .env。
+function load_project_dotenv(string $path): void {
+    if (!is_file($path)) {
+        return;
+    }
+    $lines = file($path, FILE_IGNORE_NEW_LINES);
+    if ($lines === false) {
+        return;
+    }
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if ($line === '' || $line[0] === '#' || strpos($line, '=') === false) {
+            continue;
+        }
+        $parts = explode('=', $line, 2);
+        $key = trim($parts[0]);
+        if (strpos($key, 'export ') === 0) {
+            $key = trim(substr($key, 7));
+        }
+        $value = trim($parts[1]);
+        $len = strlen($value);
+        if ($len >= 2) {
+            $quote = $value[0];
+            if (($quote === '"' || $quote === "'") && $value[$len - 1] === $quote) {
+                $value = substr($value, 1, -1);
+            }
+        }
+        if ($key === '' || $value === '') {
+            continue;
+        }
+        $existing = getenv($key);
+        if ($existing !== false && $existing !== '') {
+            continue;
+        }
+        putenv($key . '=' . $value);
+        $_ENV[$key] = $value;
+    }
+}
+
+load_project_dotenv(PLAN_DIR . '/.env');
+$envDataDir = getenv('DATA_DIR');
+if (is_string($envDataDir) && $envDataDir !== '') {
+    if ($envDataDir === '~' || strpos($envDataDir, '~/') === 0) {
+        $home = getenv('HOME');
+        $home = is_string($home) ? $home : '';
+        $envDataDir = $home . substr($envDataDir, 1);
+    }
+    $dataDir = ($envDataDir !== '' && $envDataDir[0] === '/') ? $envDataDir : PLAN_DIR . '/' . $envDataDir;
+} else {
+    $dataDir = PLAN_DIR . '/data';
+}
+define('DATA_DIR', $dataDir);
 define('PRODUCED_PATH', DATA_DIR . '/produced.json');
 define('COLLECTED_PATH', DATA_DIR . '/collected.json');
 define('JUDGED_PATH', DATA_DIR . '/judged.json');
@@ -76,7 +128,7 @@ function list_posts(): array {
             'cover_url' => $paths ? ('api.php?action=image&path=' . urlencode($paths[0])) : '',
             'has_md'   => isset($p['md_file']),
             'has_skill_script' => isset($p['skill_script_path']),
-            'body_len' => mb_strlen($p['body'] ?? ''),
+            'body_len' => text_length($p['body'] ?? ''),
             'status'   => $p['status'] ?? '',
         ];
     }
@@ -273,6 +325,14 @@ function serve_md(string $id) {
 }
 
 // ============ 工具 ============
+
+function text_length(string $value): int {
+    // php-cli 最小安装常常没有 mbstring。没有时按字节计，只影响列表里的字数，不阻断看板。
+    if (function_exists('mb_strlen')) {
+        return mb_strlen($value);
+    }
+    return strlen($value);
+}
 
 function load_json(string $path): array {
     if (!is_file($path)) return [];

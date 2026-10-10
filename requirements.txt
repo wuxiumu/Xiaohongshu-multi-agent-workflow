@@ -1,0 +1,7 @@
+# 看板与冒烟检查不依赖下列包。完整流水线才需要。
+# 安装：python3 -m pip install -r requirements.txt
+# 抓取另需：python3 -m playwright install chromium
+
+PyYAML>=6.0
+requests>=2.31
+playwright>=1.40
