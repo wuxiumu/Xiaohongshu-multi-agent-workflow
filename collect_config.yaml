@@ -1,9 +1,11 @@
 # 收集智能体配置 · AI教程+Skill+PPT赛道
 # 被 01 收集智能体的关键词扩展脚本读取
+# EXTENSION: 定制时改 niche 与 tracks.*.seeds。profiles/*.yaml 是客户简报，需手工抄入本文件，不会自动加载。
+# 密钥不要写在这里。复制 .env.example 为 .env，或使用 ~/.openclaw/openclaw.json。
 
 niche: "AI教程+Skill+PPT变现"
 
-# LLM 调用配置(从 ~/.openclaw/openclaw.json 读取,这里只指定用哪个)
+# LLM 调用配置(密钥从 .env 或 ~/.openclaw/openclaw.json 读取,这里只指定用哪个)
 llm:
   provider: "zhipu"           # zhipu | bailian-token-plan
   model: "GLM-5.3-Flash"      # 关键词扩展用 Flash,快且便宜

@@ -17,3 +17,9 @@ data/ppt_templates/**/cover.png
 
 # 小红书登录态（含 Cookie，严禁入库）
 data/xhs_state.json
+xhs_state.json
+
+# 本地密钥（从 .env.example 复制，禁止入库）
+.env
+.env.*
+!.env.example

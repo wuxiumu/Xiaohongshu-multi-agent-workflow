@@ -9,22 +9,26 @@ LLM 只用于:
 2. 选题生成(对 top 关键词生成 3-5 个差异化选题候选)
 
 评分用纯 Python 规则,不调 LLM(快、确定、省 token)。
+
+EXTENSION（定制流水线）：
+- 关键词权重：score_keyword() 里的 weights。
+- 选题打分：score_topic()。
+- 配额：TOP_KEYWORDS_PER_TRACK / TOPICS_PER_KEYWORD / TOP_TOPICS_PER_TRACK。
+- 选题提示词：generate_topics()。保持 topics 字段 title_hint/angle/tags_hint/cross_sell_hint，03 会读。
 """
 import json
 import sys
 import time
-from pathlib import Path
 from collections import defaultdict
 
-import yaml
 import requests
 
-PLAN_DIR = Path(__file__).parent
-DATA_DIR = PLAN_DIR / "data"
+import runtime_env
+
+DATA_DIR = runtime_env.data_dir()
 COLLECTED_PATH = DATA_DIR / "collected.json"
 FEEDBACK_PATH = DATA_DIR / "feedback.json"
 JUDGED_PATH = DATA_DIR / "judged.json"
-OPENCLAW_PATH = Path.home() / ".openclaw" / "openclaw.json"
 
 # 每轨取 top M 关键词做爆款模式提炼 + 选题生成
 TOP_KEYWORDS_PER_TRACK = 5
@@ -32,11 +36,6 @@ TOP_KEYWORDS_PER_TRACK = 5
 TOPICS_PER_KEYWORD = 4
 # 最终每轨取 top N 选题
 TOP_TOPICS_PER_TRACK = 8
-
-
-def load_config():
-    oc = json.load(open(OPENCLAW_PATH, "r", encoding="utf-8"))
-    return oc.get("models", {}).get("providers", {})
 
 
 def call_llm(providers, provider_name, model, prompt, max_tokens=1500):
@@ -308,9 +307,8 @@ def main():
         sys.exit(1)
 
     collected = json.load(open(COLLECTED_PATH, "r", encoding="utf-8"))
-    providers = load_config()
-    provider_name = "zhipu"
-    model = "GLM-5.3-Flash"
+    providers, provider_name, model = runtime_env.require_llm()
+    print(f"[INFO] LLM: {provider_name} / {model}")
 
     # 读 feedback(可选)
     feedback_kws = []

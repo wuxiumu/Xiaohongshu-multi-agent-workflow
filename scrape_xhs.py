@@ -13,21 +13,24 @@
 - 每关键词间隔 5-8 秒
 - 模拟人类滚动
 - 单次抓取量 ≤ 50 条
+
+EXTENSION（定制流水线）：
+- 抓取配额：KEYWORDS_PER_TRACK、SAMPLES_PER_KEYWORD、LOGIN_WAIT_SECONDS。
+- 登录态路径：XHS_STATE_PATH，默认 data/xhs_state.json（gitignore，禁止入库）。
+- 页面改版时只改 parse_note_card() / search_keyword() 的选择器，不要改 samples 字段名。
 """
 import json
-import os
 import random
-import re
 import sys
 import time
-from pathlib import Path
 from urllib.parse import quote
 
 from playwright.sync_api import sync_playwright
 
-PLAN_DIR = Path(__file__).parent
-DATA_DIR = PLAN_DIR / "data"
-STATE_PATH = DATA_DIR / "xhs_state.json"
+import runtime_env
+
+DATA_DIR = runtime_env.data_dir()
+STATE_PATH = runtime_env.xhs_state_path()
 COLLECTED_PATH = DATA_DIR / "collected.json"
 
 # 抓取配置(扩量:每关键词 15 条,每轨 7 个词,跳过已抓的)
